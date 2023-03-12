@@ -1,7 +1,27 @@
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/HomePage";
+import useAuth from "./hooks/useAuth";
+
+const Private = ({ Item }: any) => {
+  const { user, signed } = useAuth();
+
+  console.log(signed);
+  console.log(user);
+
+  return signed ? <Item /> : <LoginPage />;
+};
 
 const routes: any[] = [
+  {
+    path: "*",
+    element: <LoginPage />,
+  },
+  {
+    path: "/home",
+    exact: true,
+    element: <Private Item={HomePage} />,
+  },
   {
     path: "/login",
     exact: true,
@@ -9,6 +29,7 @@ const routes: any[] = [
   },
   {
     path: "/register",
+    exact: true,
     element: <RegisterPage />,
   },
 ];
