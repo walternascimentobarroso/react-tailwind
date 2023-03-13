@@ -1,21 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button/Button";
+import Button from "../components/Button";
 import useAuth from "../hooks/useAuth";
+import Header from "../components/Header";
+import AsideMenu from "../components/AsideMenu";
+import Footer from "../components/Footer";
 
 export default () => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat">
-      <div className="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
-        <div className="text-white">
-          <div className="mb-8 flex flex-col items-center">
-            <h1 className="mb-2 text-2xl">Home</h1>
-            <span className="text-gray-300">Home</span>
-            <Button text="Exit" onClick={() => [signOut(), navigate("/")]} />
-          </div>
+    <>
+      <Header />
+      <div className="flex overflow-hidden bg-white pt-16">
+        <AsideMenu />
+        <div
+          className="bg-gray-900 opacity-50 hidden fixed inset-0 z-10"
+          id="sidebarBackdrop"
+        ></div>
+        <div
+          id="main-content"
+          className="w-full bg-gray-50 relative overflow-y-auto lg:ml-64
+          flex flex-col h-[calc(100vh-74px)]"
+        >
+          <main className="flex-grow">
+            <div className="pt-6 px-4">
+              <Button text="Exit" onClick={() => [signOut(), navigate("/")]} />
+            </div>
+          </main>
+          <Footer />
         </div>
       </div>
-    </div>
+    </>
   );
 };
