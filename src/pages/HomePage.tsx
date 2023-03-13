@@ -1,35 +1,45 @@
+import Template from "../components/Template";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+
 import useAuth from "../hooks/useAuth";
-import Header from "../components/Header";
-import AsideMenu from "../components/AsideMenu";
-import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb";
 
 export default () => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   return (
-    <>
-      <Header />
-      <div className="flex overflow-hidden bg-white pt-16">
-        <AsideMenu />
-        <div
-          className="bg-gray-900 opacity-50 hidden fixed inset-0 z-10"
-          id="sidebarBackdrop"
-        ></div>
-        <div
-          id="main-content"
-          className="w-full bg-gray-50 relative overflow-y-auto lg:ml-64
-          flex flex-col h-[calc(100vh-74px)]"
-        >
-          <main className="flex-grow">
-            <div className="pt-6 px-4">
-              <Button text="Exit" onClick={() => [signOut(), navigate("/")]} />
-            </div>
-          </main>
-          <Footer />
+    <Template>
+      <Breadcrumb
+        links={[
+          {
+            label: "Home",
+            href: "",
+          },
+          {
+            label: "Templates",
+            href: "",
+          },
+          {
+            label: "Theme",
+            href: "",
+          },
+        ]}
+      />
+      <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Blank page</h3>
+            <span className="text-base font-normal text-gray-500">
+              This is a blank page
+            </span>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">blank page</h3>
+          <Button text="Exit" onClick={() => [signOut(), navigate("/")]} />
         </div>
       </div>
-    </>
+    </Template>
   );
 };
