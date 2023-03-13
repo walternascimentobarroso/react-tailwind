@@ -4,11 +4,7 @@ import HomePage from "./pages/HomePage";
 import useAuth from "./hooks/useAuth";
 
 const Private = ({ Item }: any) => {
-  const { user, signed } = useAuth();
-
-  console.log(signed);
-  console.log(user);
-
+  const { signed } = useAuth();
   return signed ? <Item /> : <LoginPage />;
 };
 

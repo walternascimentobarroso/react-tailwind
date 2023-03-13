@@ -22,15 +22,12 @@ export const AuthProvider: React.FC = ({ children }: any) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const userToken = localStorage.getItem("user_token");
-    const usersStorage = localStorage.getItem("users_bd");
+    const userToken: any = localStorage.getItem("user_token");
 
-    if (userToken && usersStorage) {
-      const hasUser = JSON.parse(usersStorage)?.filter((user: User) => {
-        return user.email === JSON.parse(userToken).email;
-      });
+    if (userToken) {
+      const hasUser = JSON.parse(userToken);
 
-      if (hasUser) setUser(hasUser[0]);
+      if (hasUser) setUser(hasUser);
     }
   }, []);
 
