@@ -1,27 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DarkMode = () => {
-  const [theme, setTheme] = useState("light");
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
 
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      document.documentElement.classList.remove("dark");
-      setTheme("light");
-      localStorage.theme = "dark";
-    } else {
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-      localStorage.theme = "light";
-    }
-  };
+  useEffect(() => {
+    window.onload = function () {
+      setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      const savedMode = localStorage.getItem("darkMode");
+      if (savedMode !== null) setDarkMode(JSON.parse(savedMode));
+      if (darkMode) document.documentElement.classList.toggle("dark");
+    };
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
   return (
     <button
       type="button"
       aria-label="Color Mode"
-      onClick={toggleTheme}
+      onClick={() => setDarkMode(!darkMode)}
       className="flex justify-center p-2 text-gray-500 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md lg:bg-white lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50"
     >
-      {theme === "dark" ? (
+      {darkMode ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
