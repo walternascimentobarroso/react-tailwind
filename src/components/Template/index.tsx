@@ -6,7 +6,7 @@ const Template = ({ children }: any) => {
   return (
     <>
       <Header />
-      <div className="flex overflow-hidden bg-white pt-16">
+      <div className="flex overflow-hidden bg-white dark:bg-gray-700 pt-16">
         <AsideMenu />
         <div
           className="bg-gray-900 opacity-50 hidden fixed inset-0 z-10"
@@ -14,7 +14,7 @@ const Template = ({ children }: any) => {
         ></div>
         <div
           id="main-content"
-          className="w-full bg-gray-50 relative overflow-y-auto lg:ml-64
+          className="w-full bg-gray-50 dark:bg-gray-700 relative overflow-y-auto lg:ml-64
           flex flex-col h-[calc(100vh-74px)]"
         >
           <main className="flex-grow">
