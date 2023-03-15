@@ -1,13 +1,7 @@
 import Template from "../components/Template";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-
-import useAuth from "../hooks/useAuth";
 import Breadcrumb from "../components/Breadcrumb";
 
 export default () => {
-  const { signOut } = useAuth();
-  const navigate = useNavigate();
   return (
     <Template>
       <Breadcrumb
@@ -41,7 +35,6 @@ export default () => {
           <h3 className="text-gray-900 dark:text-gray-200 text-xl font-bold mb-2">
             blank page
           </h3>
-          <Button text="Exit" onClick={() => [signOut(), navigate("/")]} />
         </div>
       </div>
     </Template>
