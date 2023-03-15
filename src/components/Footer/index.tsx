@@ -114,11 +114,14 @@ const Footer = () => {
         </div>
       </footer>
       <p className="text-center text-sm text-gray-500 my-10">
-        &copy; 2019-2021{" "}
-        <a href="#" className="hover:underline" target="_blank">
-          Themesberg
+        &copy; 2023 &nbsp;
+        <a
+          href="https://walternascimentobarroso.github.io/"
+          className="hover:underline"
+          target="_blank"
+        >
+          Walter Nascimento Barroso
         </a>
-        . All rights reserved.
       </p>
     </>
   );
