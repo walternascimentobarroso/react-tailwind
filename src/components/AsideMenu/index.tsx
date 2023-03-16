@@ -182,7 +182,6 @@ const AsideMenu = () => {
             <div className="space-y-2 pt-2">
               <a
                 href="#"
-                target="_blank"
                 className="custom--link rounded-lg flex items-center p-2"
               >
                 <svg
@@ -201,7 +200,7 @@ const AsideMenu = () => {
               </a>
               <button
                 onClick={() => [signOut(), navigate("/")]}
-                className="custom--link rounded-lg flex items-center p-2"
+                className="custom--link rounded-lg flex items-center p-2 text-left w-full"
               >
                 <svg
                   className="w-5 h-5 custom--svg"

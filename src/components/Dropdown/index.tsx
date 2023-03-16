@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="hidden lg:flex">
@@ -38,12 +42,12 @@ const Dropdown = () => {
               >
                 Profile
               </a>
-              <a
-                className="block px-4 py-2 mt-2 custom--link rounded-lg"
-                href="#"
+              <button
+                onClick={() => [signOut(), navigate("/")]}
+                className="custom--link block px-4 py-2 mt-2 custom--link rounded-lg text-left w-full"
               >
                 Log Out
-              </a>
+              </button>
             </div>
           </div>
         )}
