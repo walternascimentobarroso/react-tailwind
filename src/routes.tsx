@@ -1,6 +1,7 @@
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
+import ComponentPage from "./pages/ComponentPage";
 import useAuth from "./hooks/useAuth";
 
 const Private = ({ Item }: any) => {
@@ -17,6 +18,11 @@ const routes: any[] = [
     path: "/home",
     exact: true,
     element: <Private Item={HomePage} />,
+  },
+  {
+    path: "/components",
+    exact: true,
+    element: <Private Item={ComponentPage} />,
   },
   {
     path: "/login",
