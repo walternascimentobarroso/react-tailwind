@@ -143,8 +143,8 @@ const AsideMenu = () => {
               </li>
             </ul>
             <div className="space-y-2 pt-2">
-              <a
-                href="#"
+              <Link
+                to="/faq"
                 className="custom--link rounded-lg flex items-center p-2"
               >
                 <svg
@@ -160,7 +160,7 @@ const AsideMenu = () => {
                   ></path>
                 </svg>
                 <span className="ml-3 flex-1 whitespace-nowrap">FAQ's</span>
-              </a>
+              </Link>
               <Link
                 to="/components"
                 className="custom--link rounded-lg flex items-center p-2 text-left w-full"

@@ -3,6 +3,7 @@ import RegisterPage from "./pages/RegisterPage";
 import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 import HomePage from "./pages/HomePage";
 import ComponentPage from "./pages/ComponentPage";
+import FaqPage from "./pages/FaqPage";
 import useAuth from "./hooks/useAuth";
 
 const Private = ({ Item }: any) => {
@@ -19,6 +20,11 @@ const routes: any[] = [
     path: "/home",
     exact: true,
     element: <Private Item={HomePage} />,
+  },
+  {
+    path: "/faq",
+    exact: true,
+    element: <Private Item={FaqPage} />,
   },
   {
     path: "/components",
