@@ -87,7 +87,7 @@ export default () => {
               </div>
               <div className="flex justify-between">
                 <div className="text-center">
-                  <ALink route="#">Forgot Password?</ALink>
+                  <ALink route="/recover">Forgot Password?</ALink>
                 </div>
                 <div className="text-center">
                   <ALink route="/register">

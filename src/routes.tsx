@@ -1,5 +1,6 @@
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 import HomePage from "./pages/HomePage";
 import ComponentPage from "./pages/ComponentPage";
 import useAuth from "./hooks/useAuth";
@@ -33,6 +34,11 @@ const routes: any[] = [
     path: "/register",
     exact: true,
     element: <RegisterPage />,
+  },
+  {
+    path: "/recover",
+    exact: true,
+    element: <RecoverPasswordPage />,
   },
 ];
 
