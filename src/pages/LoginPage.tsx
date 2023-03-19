@@ -52,6 +52,7 @@ export default () => {
                     E-mail
                   </label>
                   <Input
+                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     type="email"
                     placeholder="Type your E-mail"
                     value={email}
@@ -69,6 +70,7 @@ export default () => {
                     Password
                   </label>
                   <Input
+                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     type="password"
                     placeholder="Type your password"
                     value={password}
