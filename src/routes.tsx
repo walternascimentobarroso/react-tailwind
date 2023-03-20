@@ -3,6 +3,7 @@ import RegisterPage from "./pages/RegisterPage";
 import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 import HomePage from "./pages/HomePage";
 import ComponentPage from "./pages/ComponentPage";
+import UserPage from "./pages/UserPage";
 import FaqPage from "./pages/FaqPage";
 import useAuth from "./hooks/useAuth";
 
@@ -20,6 +21,11 @@ const routes: any[] = [
     path: "/home",
     exact: true,
     element: <Private Item={HomePage} />,
+  },
+  {
+    path: "/user",
+    exact: true,
+    element: <Private Item={UserPage} />,
   },
   {
     path: "/faq",

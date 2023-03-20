@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 const AsideMenu = () => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
-  const [activeLink, setActiveLink] = useState(window.location.pathname);
+  const [activeLink] = useState(window.location.pathname);
 
   return (
     <aside
@@ -66,9 +66,12 @@ const AsideMenu = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="custom--link rounded-lg flex items-center p-2"
+                <Link
+                  to="/user"
+                  className={`custom--link rounded-lg flex items-center p-2 ${
+                    activeLink === "/user" &&
+                    "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
+                  }`}
                 >
                   <svg
                     className="w-6 h-6 custom--svg"
@@ -84,7 +87,7 @@ const AsideMenu = () => {
                   </svg>
                   <span className="ml-3 flex-1 whitespace-nowrap">Users</span>
                   <span className="custom--badge">4</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a
