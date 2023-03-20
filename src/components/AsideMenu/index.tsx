@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const AsideMenu = () => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+  const [activeLink, setActiveLink] = useState(window.location.pathname);
+
+  const handleClick = (linkName: string) => {
+    setActiveLink(linkName);
+  };
+
   return (
     <aside
       id="sidebar"
@@ -44,7 +50,11 @@ const AsideMenu = () => {
               <li>
                 <Link
                   to="/home"
-                  className="custom--link rounded-lg flex items-center p-2"
+                  className={`custom--link rounded-lg flex items-center p-2 ${
+                    activeLink === "/home" &&
+                    "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
+                  }`}
+                  onClick={() => handleClick("/home")}
                 >
                   <svg
                     className="w-6 h-6 custom--svg"
@@ -145,7 +155,11 @@ const AsideMenu = () => {
             <div className="space-y-2 pt-2">
               <Link
                 to="/faq"
-                className="custom--link rounded-lg flex items-center p-2"
+                className={`custom--link rounded-lg flex items-center p-2 ${
+                  activeLink === "/faq" &&
+                  "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
+                }`}
+                onClick={() => handleClick("/faq")}
               >
                 <svg
                   className="w-6 h-6 custom--svg"
@@ -163,7 +177,11 @@ const AsideMenu = () => {
               </Link>
               <Link
                 to="/components"
-                className="custom--link rounded-lg flex items-center p-2 text-left w-full"
+                className={`custom--link rounded-lg flex items-center p-2 ${
+                  activeLink === "/components" &&
+                  "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
+                }`}
+                onClick={() => handleClick("/components")}
               >
                 <svg
                   className="w-6 h-6 custom--svg"
