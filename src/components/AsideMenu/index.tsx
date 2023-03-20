@@ -7,10 +7,6 @@ const AsideMenu = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState(window.location.pathname);
 
-  const handleClick = (linkName: string) => {
-    setActiveLink(linkName);
-  };
-
   return (
     <aside
       id="sidebar"
@@ -54,7 +50,6 @@ const AsideMenu = () => {
                     activeLink === "/home" &&
                     "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
                   }`}
-                  onClick={() => handleClick("/home")}
                 >
                   <svg
                     className="w-6 h-6 custom--svg"
@@ -159,7 +154,6 @@ const AsideMenu = () => {
                   activeLink === "/faq" &&
                   "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
                 }`}
-                onClick={() => handleClick("/faq")}
               >
                 <svg
                   className="w-6 h-6 custom--svg"
@@ -181,7 +175,6 @@ const AsideMenu = () => {
                   activeLink === "/components" &&
                   "text-gray-900 bg-gray-200 dark:bg-gray-600 dark:text-white"
                 }`}
-                onClick={() => handleClick("/components")}
               >
                 <svg
                   className="w-6 h-6 custom--svg"
