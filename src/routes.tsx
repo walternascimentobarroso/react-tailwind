@@ -6,6 +6,7 @@ import ComponentPage from "./pages/ComponentPage";
 import UserPage from "./pages/UserPage";
 import FaqPage from "./pages/FaqPage";
 import useAuth from "./hooks/useAuth";
+import Error404Page from "./pages/Error404Page";
 
 const Private = ({ Item }: any) => {
   const { signed } = useAuth();
@@ -15,7 +16,7 @@ const Private = ({ Item }: any) => {
 const routes: any[] = [
   {
     path: "*",
-    element: <LoginPage />,
+    element: <Error404Page />,
   },
   {
     path: "/home",
