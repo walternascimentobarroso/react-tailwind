@@ -1,4 +1,4 @@
-# Templat PHP-Nginx-Docker
+# Templat React-Typescript-Tailwindcss
 
 <details open>
 <summary><h2> :scroll: Overview </h2></summary>
