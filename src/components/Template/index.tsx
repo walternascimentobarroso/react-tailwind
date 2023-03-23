@@ -1,8 +1,12 @@
+import { useRef } from "react";
+
 import Header from "../Header";
 import AsideMenu from "../AsideMenu";
 import Footer from "../Footer";
+import TopButton from "../TopButton";
 
 const Template = ({ children }: any) => {
+  const contentRef: any = useRef<HTMLDivElement>(null);
   return (
     <>
       <Header />
@@ -13,13 +17,14 @@ const Template = ({ children }: any) => {
           id="sidebarBackdrop"
         ></div>
         <div
-          id="main-content"
           className="w-full bg-gray-50 dark:bg-gray-700 relative overflow-y-auto lg:ml-64
           flex flex-col h-[calc(100vh-74px)]"
+          ref={contentRef}
         >
           <main className="flex-grow">
             <div className="pt-6 px-4">
               <div className="w-full grid grid-cols-1">{children}</div>
+              <TopButton passRef={contentRef} />
             </div>
           </main>
           <Footer />
