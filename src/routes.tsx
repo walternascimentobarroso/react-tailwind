@@ -16,7 +16,7 @@ const Private = ({ Item }: any) => {
 const routes: any[] = [
   {
     path: "*",
-    element: <Error404Page />,
+    element: <Private Item={Error404Page} />,
   },
   {
     path: "/home",
