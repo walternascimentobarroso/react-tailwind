@@ -19,10 +19,18 @@ git clone https://github.com/walternascimentobarroso/react-tailwind.git
 </details>
 
 <details open>
+<summary><h2> :hammer_and_pick: GitFlow </h2></summary>
+```
+git flow init
+```
+</details>
+
+<details open>
 <summary><h2> :hammer_and_pick: Tools </h2></summary>
 
 -   [VSCode](https://code.visualstudio.com/)
 -   [EditorConfig](https://editorconfig.org/)
+-   [GitFlow](https://github.com/nvie/gitflow/)
 -   [React](https://react.dev/)
 -   [Typescript](https://www.typescriptlang.org/)
 -   [Tailwindcss](https://tailwindcss.com/)
