@@ -19,7 +19,7 @@ git clone https://github.com/walternascimentobarroso/react-tailwind.git
 </details>
 
 <details open>
-<summary><h2> :hammer_and_pick: GitFlow </h2></summary>
+<summary><h2> :octocat: GitFlow </h2></summary>
 
 ```
 git flow init
@@ -44,6 +44,7 @@ git flow feature finish new-feature
 
 - [VSCode](https://code.visualstudio.com/)
 - [EditorConfig](https://editorconfig.org/)
+- [GitHub Action](https://github.com/features/actions/)
 - [GitFlow](https://github.com/nvie/gitflow/)
 - [React](https://react.dev/)
 - [Typescript](https://www.typescriptlang.org/)
@@ -59,17 +60,25 @@ git flow feature finish new-feature
 | **Description**  | **Type**  |
 | ---------------- | --------- |
 | AsideMenu        | Component |
-| Header           | Component |
-| Footer           | Component |
+| Breadcrumb       | Component |
+| Button           | Component |
+| DarkMode         | Component |
 | Dropdown         | Component |
-| Page 404         | Page      |
-| Login            | Page      |
-| Register         | Page      |
-| Recover Password | Page      |
+| Footer           | Component |
+| Header           | Component |
+| Input            | Component |
+| ProfilePicture   | Component |
+| Template         | Component |
+| TopButton        | Component |
+| Component        | Page      |
+| Error 404        | Page      |
+| Faq              | Page      |
 | Home             | Page      |
+| Login            | Page      |
+| Profile          | Page      |
+| Recover Password | Page      |
+| Register         | Page      |
 | List of Users    | Page      |
-
-The [MIT License](LICENSE) (MIT)
 
 </details>
 
