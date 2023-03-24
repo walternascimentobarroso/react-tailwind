@@ -23,7 +23,7 @@ const TopButton: any = ({ passRef }: any) => {
         <button
           onClick={() => scrollToTop()}
           className="fixed bottom-4 right-4 z-50 p-2 rounded-full 
-          custom--bg hover:bg-gray-200 dark:hover:bg-gray-600"
+          custom--bg hover:bg-gray-200 dark:hover:bg-gray-600 shadow"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -36,12 +37,12 @@ const Dropdown = () => {
         {isOpen && (
           <div className="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
             <div className="px-2 py-2 rounded-md shadow custom--bg">
-              <a
+              <Link
+                to="/profile"
                 className="block px-4 py-2 mt-2 custom--link rounded-lg"
-                href="#"
               >
                 Profile
-              </a>
+              </Link>
               <button
                 onClick={() => [signOut(), navigate("/")]}
                 className="custom--link block px-4 py-2 mt-2 custom--link rounded-lg text-left w-full"

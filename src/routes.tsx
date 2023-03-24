@@ -7,6 +7,7 @@ import UserPage from "./pages/UserPage";
 import FaqPage from "./pages/FaqPage";
 import useAuth from "./hooks/useAuth";
 import Error404Page from "./pages/Error404Page";
+import ProfilePage from "./pages/ProfilePage";
 
 const Private = ({ Item }: any) => {
   const { signed } = useAuth();
@@ -22,6 +23,11 @@ const routes: any[] = [
     path: "/home",
     exact: true,
     element: <Private Item={HomePage} />,
+  },
+  {
+    path: "/profile",
+    exact: true,
+    element: <Private Item={ProfilePage} />,
   },
   {
     path: "/user",
