@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const Breadcrumb = ({ links }: any) => {
   return (
     <nav
-      className="bg-white text-gray-700 dark:bg-gray-800 dark:border-gray-700 flex border border-gray-200 py-3 px-5 rounded-lg mb-4"
+      className="bg-white text-gray-700 dark:bg-gray-800 flex shadow py-3 px-5 rounded-lg mb-4"
       aria-label="Breadcrumb"
     >
       <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -22,12 +24,12 @@ const Breadcrumb = ({ links }: any) => {
               </svg>
             )}
             {index !== links.length - 1 ? (
-              <a
+              <Link
                 className="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium dark:text-gray-200 dark:hover:text-white"
-                href={link.href}
+                to={link.href}
               >
                 {link.label}
-              </a>
+              </Link>
             ) : (
               <span className="text-gray-400 ml-1 md:ml-2 text-sm font-medium dark:text-gray-500">
                 {link.label}

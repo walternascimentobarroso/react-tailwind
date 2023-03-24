@@ -19,13 +19,34 @@ git clone https://github.com/walternascimentobarroso/react-tailwind.git
 </details>
 
 <details open>
+<summary><h2> :hammer_and_pick: GitFlow </h2></summary>
+```
+git flow init
+```
+
+After init with git flow, use feature for new features:
+
+```
+git flow feature start new-feature
+```
+
+Now, start committing on your feature. When done, use:
+
+```
+git flow feature finish new-feature
+```
+
+</details>
+
+<details open>
 <summary><h2> :hammer_and_pick: Tools </h2></summary>
 
--   [VSCode](https://code.visualstudio.com/)
--   [EditorConfig](https://editorconfig.org/)
--   [React](https://react.dev/)
--   [Typescript](https://www.typescriptlang.org/)
--   [Tailwindcss](https://tailwindcss.com/)
+- [VSCode](https://code.visualstudio.com/)
+- [EditorConfig](https://editorconfig.org/)
+- [GitFlow](https://github.com/nvie/gitflow/)
+- [React](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Tailwindcss](https://tailwindcss.com/)
 
 </details>
 
@@ -34,19 +55,18 @@ git clone https://github.com/walternascimentobarroso/react-tailwind.git
 <details open>
 <summary><h2> :roller_coaster: List of Pages and components </h2></summary>
 
-| **Description** |  **Type**  |
-|-----------------|------------|
-| AsideMenu       | Component  |
-| Header          | Component  |
-| Footer          | Component  |
-| Dropdown        | Component  |
-| Page 404        | Page       |
-| Login           | Page       |
-| Register        | Page       |
-| Recover Password| Page       |
-| Home            | Page       |
-| List of Users   | Page       |
-
+| **Description**  | **Type**  |
+| ---------------- | --------- |
+| AsideMenu        | Component |
+| Header           | Component |
+| Footer           | Component |
+| Dropdown         | Component |
+| Page 404         | Page      |
+| Login            | Page      |
+| Register         | Page      |
+| Recover Password | Page      |
+| Home             | Page      |
+| List of Users    | Page      |
 
 The [MIT License](LICENSE) (MIT)
 
@@ -76,7 +96,7 @@ The [MIT License](LICENSE) (MIT)
 <details open>
 <summary><h2> :smiley_cat: Author </h2></summary>
 
--   [@walternascimentobarroso](https://walternascimentobarroso.github.io/)
+- [@walternascimentobarroso](https://walternascimentobarroso.github.io/)
 
 </details>
 
