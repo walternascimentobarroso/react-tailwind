@@ -20,6 +20,7 @@ git clone https://github.com/walternascimentobarroso/react-tailwind.git
 
 <details open>
 <summary><h2> :hammer_and_pick: GitFlow </h2></summary>
+
 ```
 git flow init
 ```
