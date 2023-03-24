@@ -36,13 +36,9 @@ const Header = () => {
               href="#"
               className="text-xl font-bold flex items-center lg:ml-2.5"
             >
-              <img
-                src="https://demo.themesberg.com/windster/images/logo.svg"
-                className="h-6 mr-2"
-                alt="Windster Logo"
-              />
+              <img src="/logo.png" className="h-6 mr-2" alt="Company Logo" />
               <span className="self-center whitespace-nowrap dark:text-gray-200">
-                Windster
+                Dashboard
               </span>
             </a>
             <form action="#" method="GET" className="hidden lg:block lg:pl-32">
