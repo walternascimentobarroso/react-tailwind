@@ -1,5 +1,6 @@
 import Template from "../components/Template";
 import Breadcrumb from "../components/Breadcrumb";
+import ProfilePicture from "../components/ProfilePicture";
 
 export default () => {
   return (
@@ -23,6 +24,8 @@ export default () => {
 
         <form className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 shadow rounded-lg">
           <div className="mb-4 md:flex md:justify-between">
+            <ProfilePicture alt="Profile picture" />
+
             <div className="mb-4 md:mr-2 md:mb-0">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700 dark:text-white dark:bg-gray-800"
