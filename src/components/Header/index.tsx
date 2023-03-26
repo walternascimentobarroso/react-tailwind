@@ -1,5 +1,6 @@
 import DarkMode from "../DarkMode";
 import Dropdown from "../Dropdown";
+import Logo from "../../assets/logo.png";
 
 const Header = () => {
   return (
@@ -36,7 +37,7 @@ const Header = () => {
               href="#"
               className="text-xl font-bold flex items-center lg:ml-2.5"
             >
-              <img src="/logo.png" className="h-6 mr-2" alt="Company Logo" />
+              <img src={Logo} className="h-6 mr-2" alt="Company Logo" />
               <span className="self-center whitespace-nowrap dark:text-gray-200">
                 Dashboard
               </span>
