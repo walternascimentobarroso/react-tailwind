@@ -1,17 +1,14 @@
-name: Deploy
+name: Pipeline Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm ci
@@ -22,6 +19,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GH_TOKEN }}
+          personal_token: ${{ github.token }}
           publish_dir: ./dist
           publish_branch: gh-pages
