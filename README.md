@@ -52,6 +52,17 @@ git flow feature finish new-feature
 
 </details>
 
+<details open>
+<summary><h2> :rocket: Deploy GH-Pages </h2></summary>
+
+```
+yarn build
+git add dist -f
+git subtree push --prefix dist origin gh-pages
+```
+
+</details>
+
 </details>
 
 <details open>
