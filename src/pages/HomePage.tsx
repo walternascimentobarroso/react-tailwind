@@ -27,7 +27,7 @@ export default () => {
               Blank page
             </h3>
             <span className="text-base font-normal text-gray-500">
-              This is a blank page
+              This is a blank page!
             </span>
           </div>
         </div>
