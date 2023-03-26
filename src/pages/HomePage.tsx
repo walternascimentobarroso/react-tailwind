@@ -31,11 +31,6 @@ export default () => {
             </span>
           </div>
         </div>
-        <div>
-          <h3 className="text-gray-900 dark:text-gray-200 text-xl font-bold mb-2">
-            blank page
-          </h3>
-        </div>
       </div>
     </Template>
   );
