@@ -9,7 +9,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter basename="/react-tailwind">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           {routes.map((route) => (
             <Route key={route.path} {...route} />
