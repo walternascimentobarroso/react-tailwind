@@ -1,5 +1,5 @@
-import Template from "../components/Template";
-import Breadcrumb from "../components/Breadcrumb";
+import Template from "../../components/Template";
+import Breadcrumb from "../../components/Breadcrumb";
 
 export default () => {
   return (

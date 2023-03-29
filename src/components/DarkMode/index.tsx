@@ -25,7 +25,7 @@ const DarkMode = () => {
       type="button"
       aria-label="Color Mode"
       onClick={() => setDarkMode(!darkMode)}
-      className="flex justify-center p-2 custom--button"
+      className="flex justify-center custom--btn"
     >
       {darkMode ? (
         <svg

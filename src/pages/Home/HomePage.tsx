@@ -1,6 +1,6 @@
-import Template from "../components/Template";
-import Breadcrumb from "../components/Breadcrumb";
-import Modal from "../components/Modal";
+import Template from "../../components/Template";
+import Breadcrumb from "../../components/Breadcrumb";
+import Modal from "../../components/Modal";
 import { useState } from "react";
 
 export default () => {

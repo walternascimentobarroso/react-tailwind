@@ -1,6 +1,6 @@
-import Template from "../components/Template";
-import Breadcrumb from "../components/Breadcrumb";
-import ProfilePicture from "../components/ProfilePicture";
+import Template from "../../components/Template";
+import Breadcrumb from "../../components/Breadcrumb";
+import ProfilePicture from "../../components/ProfilePicture";
 
 export default () => {
   return (

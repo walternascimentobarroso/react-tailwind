@@ -1,6 +1,6 @@
-import Template from "../components/Template";
-import Breadcrumb from "../components/Breadcrumb";
-import Table from "../components/Table";
+import Template from "../../components/Template";
+import Breadcrumb from "../../components/Breadcrumb";
+import Table from "../../components/Table";
 
 export default () => {
   return (
@@ -22,7 +22,7 @@ export default () => {
           Users
         </h1>
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <div className="bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 rounded-t-lg">
+          <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
             <label htmlFor="table-search" className="sr-only">
               Search
             </label>
@@ -49,6 +49,8 @@ export default () => {
                 placeholder="Search for items"
               />
             </div>
+
+            <button className="custom--btn-primary">New</button>
           </div>
           <Table />
         </div>

@@ -1,4 +1,4 @@
-import ALink from "../components/ALink";
+import ALink from "../../components/ALink";
 
 export default () => {
   return (
