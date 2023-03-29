@@ -12,7 +12,7 @@ const Dropdown = () => {
     <div className="hidden lg:flex">
       <div className="relative">
         <button
-          className="flex flex-row items-center w-full px-2 py-2 custom--button"
+          className="flex flex-row items-center w-full custom--btn"
           onClick={() => setIsOpen(!isOpen)}
         >
           <img

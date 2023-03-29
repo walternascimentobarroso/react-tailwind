@@ -7,15 +7,6 @@
           dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700;
 }
 
-.custom--button {
-  @apply custom--bg border-transparent rounded-lg transition duration-150 ease-in-out
-          font-semibold 
-          hover:bg-gray-100 hover:text-gray-700
-          dark:hover:bg-gray-700 dark:hover:text-gray-400
-          focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700
-          active:bg-gray-100;
-}
-
 .custom--link {
   @apply text-gray-900 font-semibold
           dark:text-gray-200 
@@ -31,4 +22,32 @@
 
 .custom--badge {
   @apply bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full;
+}
+
+.custom--btn {
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-primary {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-success {
+  @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-danger {
+  @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-info {
+  @apply bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.custom--btn-warning {
+  @apply bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded;
 }
