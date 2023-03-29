@@ -1,7 +1,12 @@
 import Template from "../components/Template";
 import Breadcrumb from "../components/Breadcrumb";
+import Modal from "../components/Modal";
+import { useState } from "react";
 
 export default () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModalClose = () => setIsModalOpen(!isModalOpen);
+
   return (
     <Template>
       <Breadcrumb
@@ -28,7 +33,16 @@ export default () => {
             </h3>
             <span className="text-base font-normal text-gray-500">
               This is a blank page!!
+              <button onClick={toggleModalClose}>Open</button>
             </span>
+
+            <Modal
+              isOpen={isModalOpen}
+              onClose={toggleModalClose}
+              title="Exemplo de Modal"
+            >
+              <span>lol</span>
+            </Modal>
           </div>
         </div>
       </div>
