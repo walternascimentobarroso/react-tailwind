@@ -1,6 +1,8 @@
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import Table from "../../components/Table";
+import NewUserForm from "./NewUserForm";
+import DeleteUser from "./DeleteUser";
 
 export default () => {
   return (
@@ -50,7 +52,9 @@ export default () => {
               />
             </div>
 
-            <button className="custom--btn-primary">New</button>
+            <NewUserForm />
+
+            <DeleteUser />
           </div>
           <Table />
         </div>
