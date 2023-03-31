@@ -1,8 +1,8 @@
+import TableUser from "./TableUser";
+import DeleteUser from "./DeleteUser";
+import NewUserForm from "./NewUserForm";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
-import Table from "../../components/Table";
-import NewUserForm from "./NewUserForm";
-import DeleteUser from "./DeleteUser";
 
 export default () => {
   return (
@@ -53,10 +53,8 @@ export default () => {
             </div>
 
             <NewUserForm />
-
-            <DeleteUser />
           </div>
-          <Table />
+          <TableUser />
         </div>
       </div>
     </Template>
