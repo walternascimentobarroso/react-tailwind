@@ -2,6 +2,7 @@ import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import Modal from "../../components/Modal";
 import { useState } from "react";
+import StatisticCard from "../../components/StatisticCard";
 
 export default () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +26,9 @@ export default () => {
           },
         ]}
       />
+
+      <StatisticCard />
+
       <div className="bg-white text-gray-700 dark:bg-gray-800 dark:border-gray-700 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
         <div className="mb-4 flex items-center justify-between">
           <div>
