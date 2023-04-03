@@ -82,6 +82,7 @@ git subtree push --prefix dist origin gh-pages
 | ProfilePicture   | Component |
 | Table            | Component |
 | Template         | Component |
+| Tooltip          | Component |
 | TopButton        | Component |
 | Component        | Page      |
 | Error 404        | Page      |
