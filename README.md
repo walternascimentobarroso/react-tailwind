@@ -49,6 +49,7 @@ git flow feature finish new-feature
 - [React](https://react.dev/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Tailwindcss](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 </details>
 
