@@ -1,13 +1,12 @@
 import { useModal } from "../../hooks/useModal";
+import Button from "../../components/Button";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
 
   return (
     <>
-      <button className="custom--btn-primary" onClick={() => openModal()}>
-        New
-      </button>
+      <Button onClick={() => openModal()}>New</Button>
       <ModalWrapper title="New User">
         <form>
           <div className="mb-4 md:flex md:justify-between">
@@ -88,13 +87,7 @@ export default () => {
             </div>
           </div>
           <div className="mb-6 text-center">
-            <button
-              className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={() => closeModal()}
-            >
-              Save
-            </button>
+            <Button onClick={() => closeModal()}>Save</Button>
           </div>
         </form>
       </ModalWrapper>
