@@ -19,10 +19,7 @@ const Tooltip: FC<Props> = ({
       ref={container}
       onMouseEnter={({ clientX }) => {
         if (!tooltipRef.current || !container.current) return;
-        const { left, height } = container.current.getBoundingClientRect();
-        console.log(container.current.getBoundingClientRect());
-        console.log(clientX);
-        // tooltipRef.current.style.left = clientX - left + "px";
+        const { height } = container.current.getBoundingClientRect();
         let halfHeight = height / 2;
         tooltipRef.current.style.top =
           direction === "top" ? `-${halfHeight}px` : `${height + halfHeight}px`;

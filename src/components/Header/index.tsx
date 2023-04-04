@@ -2,6 +2,7 @@ import Tooltip from "../Tooltip";
 import Dropdown from "../Dropdown";
 import DarkMode from "../DarkMode";
 import Logo from "../../assets/logo.png";
+import { MdSearch } from "react-icons/md";
 
 const Header = () => {
   return (
@@ -49,14 +50,7 @@ const Header = () => {
               </label>
               <div className="mt-1 relative lg:w-64">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg
-                    className="w-5 h-5 text-gray-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
-                  </svg>
+                  <MdSearch className="w-5 h-5 text-gray-500" />
                 </div>
                 <input
                   type="text"
@@ -75,14 +69,7 @@ const Header = () => {
               className="lg:hidden text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-2 rounded-lg"
             >
               <span className="sr-only">Search</span>
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
-              </svg>
+              <MdSearch className="w-6 h-6" />
             </button>
             <Tooltip tooltip="Toggle dark mode" direction="bottom">
               <DarkMode />
