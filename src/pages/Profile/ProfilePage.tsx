@@ -1,10 +1,10 @@
+import { useState } from "react";
+import Input from "../../components/Input";
+import Title from "../../components/Title";
+import Button from "../../components/Button";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import ProfilePicture from "../../components/ProfilePicture";
-import Input from "../../components/Input";
-import { useState } from "react";
-import Button from "../../components/Button";
-import Title from "../../components/Title";
 
 export default () => {
   const [name, setName] = useState("");
