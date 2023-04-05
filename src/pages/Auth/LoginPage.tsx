@@ -43,7 +43,7 @@ export default () => {
           ></div>
           <div className="w-full lg:w-7/12 bg-white dark:bg-gray-800 p-5 rounded-lg lg:rounded-l-none">
             <Title customClass="text-2xl text-center">Log In!</Title>
-            <form className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
+            <form className="px-8 pt-6 pb-8 mb-4">
               <Input
                 label={"Email"}
                 type={"email"}
@@ -75,9 +75,9 @@ export default () => {
                 <ALink route="/register">Don't have an account? Sign up</ALink>
               </div>
 
-              <div className="relative flex items-center justify-center m-6">
+              <div className="relative flex items-center justify-center my-6">
                 <span className="absolute inset-x-0 h-px bg-gray-200"></span>
-                <span className="relative bg-white dark:bg-gray-800 px-4 text-sm text-gray-300">
+                <span className="relative px-4 text-sm text-gray-300 bg-white dark:bg-gray-800">
                   OR
                 </span>
               </div>
