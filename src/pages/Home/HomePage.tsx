@@ -4,6 +4,7 @@ import Modal from "../../components/Modal";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import StatisticCard from "../../components/StatisticCard";
+import Title from "../../components/Title";
 
 export default () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,16 +18,10 @@ export default () => {
             label: "Home",
             href: "",
           },
-          {
-            label: "Templates",
-            href: "",
-          },
-          {
-            label: "Theme",
-            href: "",
-          },
         ]}
       />
+
+      <Title>Dashboard</Title>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-4 gap-4">
         <StatisticCard
