@@ -1,3 +1,4 @@
+import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
 export default () => {
@@ -85,12 +86,7 @@ export default () => {
             <td className="px-6 py-4">{record.role} </td>
             <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
-              <a
-                href="#"
-                className="p-2 font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
+              <EditUser id={record.id} />
 
               <DeleteUser id={record.id} />
             </td>

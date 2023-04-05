@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import { useModal } from "../../hooks/useModal";
 import ProfilePicture from "../../components/ProfilePicture";
 
-export default () => {
+export default ({ id }: any) => {
   const { openModal, closeModal, ModalWrapper } = useModal();
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -13,8 +13,10 @@ export default () => {
 
   return (
     <>
-      <Button onClick={() => openModal()}>New</Button>
-      <ModalWrapper title="New User">
+      <button className="custom--btn-warning mr-4" onClick={() => openModal()}>
+        Edit
+      </button>
+      <ModalWrapper title="Edit User">
         <form className="p-1 bg-white dark:bg-gray-800">
           <div className="flex justify-center">
             <ProfilePicture alt="Profile picture" />

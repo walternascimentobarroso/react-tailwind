@@ -1,6 +1,11 @@
+import { useState } from "react";
 import ALink from "../../components/ALink";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import Title from "../../components/Title";
 
 export default () => {
+  const [email, setEmail] = useState("");
   return (
     <div className="container mx-auto">
       <div className="flex justify-center px-6 my-12">
@@ -13,40 +18,22 @@ export default () => {
             }}
           ></div>
           <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-            <h3 className="pt-4 text-2xl text-center">Recover Password!</h3>
-            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-              <div className="mb-4">
-                <label
-                  className="block mb-2 text-sm font-bold text-gray-700"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                />
-              </div>
+            <Title customClass="text-2xl text-center">Recover Password</Title>
 
-              <div className="mb-6 text-center">
-                <button
-                  className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                  type="button"
-                >
-                  Recover Password
-                </button>
-              </div>
+            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <Input
+                label={"Email"}
+                type={"email"}
+                value={email}
+                placeholder={"Email"}
+                onChange={(e: any) => setEmail(e.target.value)}
+              />
+
+              <Button customClass="w-full mb-6">Recover Password</Button>
+
               <div className="flex justify-between">
-                <div className="text-center">
-                  <ALink route="/login">Already have an account? Login!</ALink>
-                </div>
-                <div className="text-center">
-                  <ALink route="/register">
-                    Don't have an account? Sign up
-                  </ALink>
-                </div>
+                <ALink route="/login">Already have an account? Login!</ALink>
+                <ALink route="/register">Don't have an account? Sign up</ALink>
               </div>
             </form>
           </div>
