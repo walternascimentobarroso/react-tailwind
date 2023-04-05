@@ -21,10 +21,10 @@ export default () => {
                 "url('https://source.unsplash.com/Mv9hjnEUHR4/600x800')",
             }}
           ></div>
-          <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+          <div className="w-full lg:w-7/12 bg-white dark:bg-gray-800 p-5 rounded-lg lg:rounded-l-none">
             <Title customClass="text-2xl text-center">Create an Account!</Title>
 
-            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+            <form className="px-8 pt-6 pb-8 mb-4">
               <Input
                 label={"Name"}
                 value={name}
@@ -70,9 +70,9 @@ export default () => {
                 <ALink route="/login">Already have an account? Login!</ALink>
               </div>
 
-              <div className="relative flex items-center justify-center m-6">
+              <div className="relative flex items-center justify-center my-6">
                 <span className="absolute inset-x-0 h-px bg-gray-200"></span>
-                <span className="relative bg-white px-4 text-sm text-gray-300">
+                <span className="relative bg-white dark:bg-gray-800 px-4 text-sm text-gray-300">
                   OR
                 </span>
               </div>
