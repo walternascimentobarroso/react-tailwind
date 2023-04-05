@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import ALink from "../../components/ALink";
+import Title from "../../components/Title";
 
 export default () => {
   const { signIn } = useAuth();
@@ -40,67 +41,43 @@ export default () => {
                 "url('https://source.unsplash.com/Mv9hjnEUHR4/600x800')",
             }}
           ></div>
-          <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-            <h3 className="pt-4 text-2xl text-center">Log In!</h3>
-            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-              <div className="mb-4 md:flex md:justify-between">
-                <div className="mb-4 md:mr-2 md:mb-0">
-                  <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
-                    htmlFor="firstName"
-                  >
-                    E-mail
-                  </label>
-                  <Input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    type="email"
-                    placeholder="Type your E-mail"
-                    value={email}
-                    onChange={(e: any) => [
-                      setEmail(e.target.value),
-                      setError(""),
-                    ]}
-                  />
-                </div>
-                <div className="md:ml-2">
-                  <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
-                    htmlFor="lastName"
-                  >
-                    Password
-                  </label>
-                  <Input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    type="password"
-                    placeholder="Type your password"
-                    value={password}
-                    onChange={(e: any) => [
-                      setPassword(e.target.value),
-                      setError(""),
-                    ]}
-                  />
-                </div>
-              </div>
+          <div className="w-full lg:w-7/12 bg-white dark:bg-gray-800 p-5 rounded-lg lg:rounded-l-none">
+            <Title customClass="text-2xl text-center">Log In!</Title>
+            <form className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
+              <Input
+                label={"Email"}
+                type={"email"}
+                value={email}
+                placeholder={"Email"}
+                onChange={(e: any) => [setEmail(e.target.value), setError("")]}
+              />
+
+              <Input
+                label={"Password"}
+                type={"password"}
+                value={password}
+                placeholder={"Password"}
+                onChange={(e: any) => [
+                  setPassword(e.target.value),
+                  setError(""),
+                ]}
+              />
 
               <div>{error}</div>
 
-              <div className="mb-6 text-center">
-                <Button onClick={handleLogin}>Login</Button>
-              </div>
+              <Button customClass="w-full mb-6" onClick={handleLogin}>
+                Login
+              </Button>
+
               <div className="flex justify-between">
-                <div className="text-center">
-                  <ALink route="/recover">Forgot Password?</ALink>
-                </div>
-                <div className="text-center">
-                  <ALink route="/register">
-                    Don't have an account? Sign up
-                  </ALink>
-                </div>
+                <ALink route="/recover">Forgot Password?</ALink>
+
+                <ALink route="/register">Don't have an account? Sign up</ALink>
               </div>
 
               <div className="relative flex items-center justify-center m-6">
                 <span className="absolute inset-x-0 h-px bg-gray-200"></span>
-                <span className="relative bg-white px-4 text-sm text-gray-300">
+                <span className="relative bg-white dark:bg-gray-800 px-4 text-sm text-gray-300">
                   OR
                 </span>
               </div>

@@ -20,6 +20,7 @@ export default ({
         type={type}
         placeholder={placeholder}
       />
+      {/* <p className="text-xs italic text-red-500">Please choose a password.</p> */}
     </div>
   );
 };
