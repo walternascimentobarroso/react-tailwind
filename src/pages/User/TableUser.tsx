@@ -3,16 +3,13 @@ import DeleteUser from "./DeleteUser";
 export default () => {
   const tHeads = [
     {
-      description: "Description",
+      description: "User",
     },
     {
-      description: "Color",
+      description: "Role",
     },
     {
-      description: "Category",
-    },
-    {
-      description: "Price",
+      description: "Status",
     },
     {
       description: "Actions",
@@ -22,24 +19,30 @@ export default () => {
   const data = [
     {
       id: 1,
-      description: "Apple MacBook Pro 17'",
-      color: "Silver",
-      category: "Laptop",
-      price: "$2999",
+      name: "Apple MacBook Pro 17'",
+      photo:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      email: "est.asd@gmail.com",
+      role: "Admin",
+      status: "Active",
     },
     {
       id: 2,
-      description: "Apple MacBook Pro 17'",
-      color: "Silver",
-      category: "Laptop",
-      price: "$2999",
+      name: "Apple MacBook Pro 17'",
+      photo:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      email: "est.asd@gmail.com",
+      role: "Admin",
+      status: "Inactive",
     },
     {
       id: 3,
-      description: "Apple MacBook Pro 17'",
-      color: "Silver",
-      category: "Laptop",
-      price: "$2999",
+      name: "Apple MacBook Pro 17'",
+      photo:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      email: "est.asd@gmail.com",
+      role: "Guest",
+      status: "Active",
     },
   ];
   return (
@@ -63,11 +66,24 @@ export default () => {
             key={index}
           >
             <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              {record.description}
+              <div className="flex items-center gap-x-2">
+                <img
+                  className="object-cover w-8 h-8 rounded-full"
+                  src={record.photo}
+                  alt="Profile"
+                />
+                <div>
+                  <h2 className="text-sm font-medium text-gray-800 dark:text-white ">
+                    {record.name}
+                  </h2>
+                  <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
+                    {record.email}
+                  </p>
+                </div>
+              </div>
             </th>
-            <td className="px-6 py-4">{record.color} </td>
-            <td className="px-6 py-4">{record.category}</td>
-            <td className="px-6 py-4">{record.price}</td>
+            <td className="px-6 py-4">{record.role} </td>
+            <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
               <a
                 href="#"

@@ -1,8 +1,8 @@
 import TableUser from "./TableUser";
-import DeleteUser from "./DeleteUser";
 import NewUserForm from "./NewUserForm";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
+import Title from "../../components/Title";
 
 export default () => {
   return (
@@ -19,10 +19,10 @@ export default () => {
           },
         ]}
       />
+
+      <Title>Users</Title>
+
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <h1 className="text-gray-900 dark:text-gray-200 text-xl font-bold mb-2">
-          Users
-        </h1>
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
             <label htmlFor="table-search" className="sr-only">
