@@ -72,7 +72,9 @@ const Header = () => {
               <span className="sr-only">Search</span>
               <MdSearch className="w-6 h-6" />
             </button>
-            <Fullscreen />
+            <Tooltip tooltip="Toggle Fullscreen" direction="bottom">
+              <Fullscreen />
+            </Tooltip>
             <Tooltip tooltip="Toggle dark mode" direction="bottom">
               <DarkMode />
             </Tooltip>

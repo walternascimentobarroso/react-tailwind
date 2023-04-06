@@ -24,9 +24,9 @@ export default () => {
         className="flex justify-center custom--btn"
       >
         {fullscreen ? (
-          <MdFullscreenExit className="w-6 h-6 text-white" />
+          <MdFullscreenExit className="w-6 h-6" />
         ) : (
-          <MdFullscreen className="w-6 h-6 text-white" />
+          <MdFullscreen className="w-6 h-6" />
         )}
       </button>
     </div>
