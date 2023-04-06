@@ -14,7 +14,7 @@ export default ({
         {label}
       </label>
       <input
-        className="bg-white dark:bg-gray-700 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full px-3 py-2 mb-3"
+        className="bg-white dark:bg-gray-700 border border-gray-300 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full px-3 py-2 mb-3"
         value={value}
         onChange={onChange}
         type={type}
