@@ -79,6 +79,7 @@ git reset --hard HEAD~
 | DarkMode         | Component |
 | Dropdown         | Component |
 | Footer           | Component |
+| Fullscreen       | Component |
 | Header           | Component |
 | Input            | Component |
 | ProfilePicture   | Component |

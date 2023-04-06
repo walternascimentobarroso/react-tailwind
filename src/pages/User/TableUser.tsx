@@ -1,7 +1,7 @@
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
-export default () => {
+export default ({ data, deleteRow }: any) => {
   const tHeads = [
     {
       description: "User",
@@ -14,36 +14,6 @@ export default () => {
     },
     {
       description: "Actions",
-    },
-  ];
-
-  const data = [
-    {
-      id: 1,
-      name: "Apple MacBook Pro 17'",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "est.asd@gmail.com",
-      role: "Admin",
-      status: "Active",
-    },
-    {
-      id: 2,
-      name: "Apple MacBook Pro 17'",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "est.asd@gmail.com",
-      role: "Admin",
-      status: "Inactive",
-    },
-    {
-      id: 3,
-      name: "Apple MacBook Pro 17'",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "est.asd@gmail.com",
-      role: "Guest",
-      status: "Active",
     },
   ];
   return (
@@ -88,7 +58,11 @@ export default () => {
             <td className="px-6 py-4">
               <EditUser id={record.id} />
 
-              <DeleteUser id={record.id} />
+              <DeleteUser
+                id={record.id}
+                description={record.name}
+                deleteAction={deleteRow}
+              />
             </td>
           </tr>
         ))}
