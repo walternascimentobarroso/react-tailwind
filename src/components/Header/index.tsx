@@ -3,6 +3,7 @@ import Dropdown from "../Dropdown";
 import DarkMode from "../DarkMode";
 import Logo from "../../assets/logo.png";
 import { MdSearch } from "react-icons/md";
+import Fullscreen from "../Fullscreen";
 
 const Header = () => {
   return (
@@ -71,6 +72,7 @@ const Header = () => {
               <span className="sr-only">Search</span>
               <MdSearch className="w-6 h-6" />
             </button>
+            <Fullscreen />
             <Tooltip tooltip="Toggle dark mode" direction="bottom">
               <DarkMode />
             </Tooltip>
