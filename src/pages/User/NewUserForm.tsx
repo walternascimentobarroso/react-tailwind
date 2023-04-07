@@ -3,18 +3,61 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useModal } from "../../hooks/useModal";
 import ProfilePicture from "../../components/ProfilePicture";
+import Alert from "../../components/Alert";
 
-export default () => {
+export default ({ onActionSubmit, defaultValue }: any) => {
   const { openModal, closeModal, ModalWrapper } = useModal();
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [formState, setFormState] = useState(
+    defaultValue || {
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+      role: "",
+      status: "",
+    }
+  );
+
+  const [errors, setErrors] = useState("");
+
+  const validateForm = () => {
+    setErrors("");
+    let errorFields: any = [];
+    for (const [key, value] of Object.entries(formState)) {
+      if (!value) {
+        errorFields.push(key);
+      }
+    }
+    if (errorFields.length) {
+      setErrors(errorFields.join(", "));
+      return false;
+    }
+    return true;
+  };
+
+  const handleChange = (e: any) =>
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e: any) => {
+    if (!validateForm()) return;
+
+    onActionSubmit(formState);
+    closeModal();
+  };
 
   return (
     <>
       <Button onClick={() => openModal()}>New</Button>
       <ModalWrapper title="New User">
+        {errors && (
+          <Alert
+            type={"Error"}
+            message={`Please include: ${errors}`}
+            onClick={() => setErrors("")}
+          />
+        )}
+
         <form className="p-1 bg-white dark:bg-gray-800">
           <div className="flex justify-center">
             <ProfilePicture alt="Profile picture" />
@@ -22,35 +65,55 @@ export default () => {
 
           <Input
             label={"Name"}
-            value={name}
             placeholder={"Name"}
-            onChange={(e: any) => setName(e.target.value)}
+            name={"name"}
+            value={formState.name}
+            onChange={handleChange}
           />
 
           <Input
             label={"Last Name"}
-            value={lastName}
             placeholder={"Last Name"}
-            onChange={(e: any) => setLastName(e.target.value)}
+            name={"lastName"}
+            value={formState.lastName}
+            onChange={handleChange}
           />
 
           <Input
             label={"Email"}
             type={"email"}
-            value={email}
             placeholder={"Email"}
-            onChange={(e: any) => setEmail(e.target.value)}
+            name={"email"}
+            value={formState.email}
+            onChange={handleChange}
           />
 
           <Input
             label={"Password"}
             type={"password"}
-            value={password}
             placeholder={"Password"}
-            onChange={(e: any) => setPassword(e.target.value)}
+            name={"password"}
+            value={formState.password}
+            onChange={handleChange}
           />
 
-          <Button customClass="w-full" onClick={() => closeModal()}>
+          <Input
+            label={"Role"}
+            placeholder={"Role"}
+            name={"role"}
+            value={formState.role}
+            onChange={handleChange}
+          />
+
+          <Input
+            label={"Status"}
+            placeholder={"status"}
+            name={"status"}
+            value={formState.status}
+            onChange={handleChange}
+          />
+
+          <Button customClass="w-full" onClick={handleSubmit}>
             Save
           </Button>
 

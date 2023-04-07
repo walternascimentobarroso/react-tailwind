@@ -1,21 +1,8 @@
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
-export default ({ data, deleteRow }: any) => {
-  const tHeads = [
-    {
-      description: "User",
-    },
-    {
-      description: "Role",
-    },
-    {
-      description: "Status",
-    },
-    {
-      description: "Actions",
-    },
-  ];
+export default ({ data, deleteRow, editRow, onActionSubmit }: any) => {
+  const tHeads = ["User", "Role", "Status", "Actions"];
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
@@ -25,7 +12,7 @@ export default ({ data, deleteRow }: any) => {
         <tr>
           {tHeads.map((head: any, index: any) => (
             <th scope="col" className="px-6 py-3" key={index}>
-              {head.description}
+              {head}
             </th>
           ))}
         </tr>
@@ -56,7 +43,7 @@ export default ({ data, deleteRow }: any) => {
             <td className="px-6 py-4">{record.role} </td>
             <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
-              <EditUser id={record.id} />
+              <EditUser id={record.id} editRow={editRow} />
 
               <DeleteUser
                 id={record.id}
