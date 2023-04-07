@@ -36,8 +36,24 @@ export default () => {
     },
   ]);
 
+  const [rowToEdit, setRowToEdit] = useState([]);
+
+  /**
+   * TODO: Set row to edit
+   */
+  const handleEditRow = (idx: any) => {
+    setRowToEdit(idx);
+
+    console.log(rowToEdit);
+    // setModalOpen(true);
+  };
+
   const handleDeleteRow = (targetIndex: any) =>
     setData(data.filter((row: any) => row.id !== targetIndex));
+
+  const handleSubmit = (newRow: any) => {
+    setData([...data, newRow]);
+  };
 
   return (
     <Template>
@@ -86,9 +102,14 @@ export default () => {
               />
             </div>
 
-            <NewUserForm />
+            <NewUserForm onActionSubmit={handleSubmit} />
           </div>
-          <TableUser data={data} deleteRow={handleDeleteRow} />
+          <TableUser
+            data={data}
+            deleteRow={handleDeleteRow}
+            onActionSubmit={handleSubmit}
+            editRow={handleEditRow}
+          />
         </div>
       </div>
     </Template>
