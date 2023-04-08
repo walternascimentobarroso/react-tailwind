@@ -6,9 +6,9 @@ export default ({ id, description, deleteAction }: any) => {
 
   return (
     <>
-      <button className="custom--btn-danger" onClick={() => openModal()}>
+      <Button customClass="custom--btn-danger" onClick={() => openModal()}>
         Delete
-      </button>
+      </Button>
       <ModalWrapper title="Delete User">
         <p>Are you sure you want remover?</p>
         <div className="my-4">

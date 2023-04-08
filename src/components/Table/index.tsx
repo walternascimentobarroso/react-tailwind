@@ -1,21 +1,5 @@
 const Table = () => {
-  const tHeads = [
-    {
-      description: "Description",
-    },
-    {
-      description: "Color",
-    },
-    {
-      description: "Category",
-    },
-    {
-      description: "Price",
-    },
-    {
-      description: "Actions",
-    },
-  ];
+  const tHeads = ["Description", "Color", "Category", "Price", "Actions"];
 
   const data = [
     {
@@ -42,11 +26,11 @@ const Table = () => {
       <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
         List of Users
       </caption>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-400">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-500 dark:text-gray-400">
         <tr>
           {tHeads.map((head: any, index: any) => (
             <th scope="col" className="px-6 py-3" key={index}>
-              {head.description}
+              {head}
             </th>
           ))}
         </tr>
@@ -57,9 +41,7 @@ const Table = () => {
             className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             key={index}
           >
-            <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              {record.description}
-            </th>
+            <td className="px-6 py-4">{record.description}</td>
             <td className="px-6 py-4">{record.color} </td>
             <td className="px-6 py-4">{record.category}</td>
             <td className="px-6 py-4">{record.price}</td>
