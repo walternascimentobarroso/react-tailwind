@@ -14,10 +14,10 @@ export default ({
       <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
         List of Users
       </caption>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-400">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-500 dark:text-gray-400">
         <tr>
           {tHeads.map((head: any, index: any) => (
-            <th scope="col" className="px-6 py-3" key={index}>
+            <th className="px-6 py-3" key={index}>
               {head}
             </th>
           ))}
@@ -29,7 +29,7 @@ export default ({
             className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             key={index}
           >
-            <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
               <div className="flex items-center gap-x-2">
                 <img
                   className="object-cover w-8 h-8 rounded-full"
@@ -45,7 +45,7 @@ export default ({
                   </p>
                 </div>
               </div>
-            </th>
+            </td>
             <td className="px-6 py-4">{record.role} </td>
             <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
