@@ -36,23 +36,26 @@ export default () => {
     },
   ]);
 
-  const [rowToEdit, setRowToEdit] = useState({} || undefined);
+  const [rowToEdit, setRowToEdit] = useState({});
 
-  /**
-   * TODO: Set row to edit
-   */
   const handleEditRow = (idx: any) => {
-    setRowToEdit(data.find((row: any) => row.id === idx));
-
-    console.log(rowToEdit);
-    // setModalOpen(true);
+    let row: any = data.find((row: any) => row.id === idx);
+    setRowToEdit(row);
   };
 
   const handleDeleteRow = (targetIndex: any) =>
     setData(data.filter((row: any) => row.id !== targetIndex));
 
   const handleSubmit = (newRow: any) => {
-    setData([...data, newRow]);
+    "name" in rowToEdit
+      ? setData(
+          data.map((row) => {
+            if (row.id !== newRow.id) return row;
+
+            return newRow;
+          })
+        )
+      : setData([...data, newRow]);
   };
 
   return (
@@ -102,7 +105,10 @@ export default () => {
               />
             </div>
 
-            <NewUserForm onActionSubmit={handleSubmit} />
+            <NewUserForm
+              onActionSubmit={handleSubmit}
+              cleanEditData={() => setRowToEdit({})}
+            />
           </div>
           <TableUser
             data={data}

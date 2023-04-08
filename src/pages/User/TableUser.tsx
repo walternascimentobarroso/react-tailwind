@@ -51,6 +51,7 @@ export default ({
             <td className="px-6 py-4">
               <EditUser
                 id={record.id}
+                onActionSubmit={onActionSubmit}
                 editRow={editRow}
                 defaultValue={defaultRowValue}
               />
