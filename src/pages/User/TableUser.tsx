@@ -1,7 +1,13 @@
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
-export default ({ data, deleteRow, editRow, onActionSubmit }: any) => {
+export default ({
+  data,
+  deleteRow,
+  editRow,
+  defaultRowValue,
+  onActionSubmit,
+}: any) => {
   const tHeads = ["User", "Role", "Status", "Actions"];
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -43,7 +49,11 @@ export default ({ data, deleteRow, editRow, onActionSubmit }: any) => {
             <td className="px-6 py-4">{record.role} </td>
             <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
-              <EditUser id={record.id} editRow={editRow} />
+              <EditUser
+                id={record.id}
+                editRow={editRow}
+                defaultValue={defaultRowValue}
+              />
 
               <DeleteUser
                 id={record.id}

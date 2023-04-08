@@ -36,13 +36,13 @@ export default () => {
     },
   ]);
 
-  const [rowToEdit, setRowToEdit] = useState([]);
+  const [rowToEdit, setRowToEdit] = useState({} || undefined);
 
   /**
    * TODO: Set row to edit
    */
   const handleEditRow = (idx: any) => {
-    setRowToEdit(idx);
+    setRowToEdit(data.find((row: any) => row.id === idx));
 
     console.log(rowToEdit);
     // setModalOpen(true);
@@ -109,6 +109,7 @@ export default () => {
             deleteRow={handleDeleteRow}
             onActionSubmit={handleSubmit}
             editRow={handleEditRow}
+            defaultRowValue={rowToEdit}
           />
         </div>
       </div>
