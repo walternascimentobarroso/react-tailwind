@@ -3,6 +3,7 @@ import Alert from "../../components/Alert";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import ProfilePicture from "../../components/ProfilePicture";
+import CustomSelect from "../../components/CustomSelect";
 
 export default ({ onActionSubmit, defaultValue, closeModal }: any) => {
   const [formState, setFormState] = useState({
@@ -29,6 +30,17 @@ export default ({ onActionSubmit, defaultValue, closeModal }: any) => {
     [defaultValue]
   );
 
+  const options = [
+    { value: "option1", label: "Opção 1" },
+    { value: "option2", label: "Opção 2" },
+    { value: "option3", label: "Opção 3" },
+  ];
+
+  const handleSelect = (value: string) => {
+    console.log("Opção selecionada:", value);
+    // Faça algo com o valor selecionado, como atualizar o estado do componente pai
+  };
+
   const [errors, setErrors] = useState("");
 
   const validateForm = () => {
@@ -50,6 +62,7 @@ export default ({ onActionSubmit, defaultValue, closeModal }: any) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
 
   const handleSubmit = (e: any) => {
+    if (!validateForm()) return;
     onActionSubmit(formState);
     closeModal();
   };
@@ -109,6 +122,13 @@ export default ({ onActionSubmit, defaultValue, closeModal }: any) => {
           name={"role"}
           value={formState?.role || ""}
           onChange={handleChange}
+        />
+
+        <CustomSelect
+          label={"Category"}
+          name={"category"}
+          options={options}
+          onSelect={handleSelect}
         />
 
         <Input
