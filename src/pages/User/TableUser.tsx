@@ -1,13 +1,7 @@
-import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
+import Button from "../../components/Button";
 
-export default ({
-  data,
-  deleteRow,
-  editRow,
-  defaultRowValue,
-  onActionSubmit,
-}: any) => {
+export default ({ data, deleteRow, editRow, openFormModal }: any) => {
   const tHeads = ["User", "Role", "Status", "Actions"];
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -49,12 +43,15 @@ export default ({
             <td className="px-6 py-4">{record.role} </td>
             <td className="px-6 py-4">{record.status}</td>
             <td className="px-6 py-4">
-              <EditUser
-                id={record.id}
-                onActionSubmit={onActionSubmit}
-                editRow={editRow}
-                defaultValue={defaultRowValue}
-              />
+              <Button
+                customClass="custom--btn-warning mr-4"
+                onClick={() => {
+                  editRow(record.id);
+                  openFormModal();
+                }}
+              >
+                Edit
+              </Button>
 
               <DeleteUser
                 id={record.id}

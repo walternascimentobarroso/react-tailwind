@@ -1,11 +1,16 @@
+import { useState } from "react";
+import FormUser from "./FormUser";
 import TableUser from "./TableUser";
-import NewUserForm from "./NewUserForm";
+import Title from "../../components/Title";
+import Button from "../../components/Button";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
-import Title from "../../components/Title";
-import { useState } from "react";
+
+import { useModal } from "../../hooks/useModal";
 
 export default () => {
+  const { openModal, closeModal, ModalWrapper } = useModal();
+
   const [data, setData] = useState([
     {
       id: 1,
@@ -105,20 +110,33 @@ export default () => {
               />
             </div>
 
-            <NewUserForm
-              onActionSubmit={handleSubmit}
-              cleanEditData={() => setRowToEdit({})}
-            />
+            <Button
+              onClick={() => {
+                setRowToEdit({});
+                openModal();
+              }}
+            >
+              New
+            </Button>
           </div>
           <TableUser
             data={data}
             deleteRow={handleDeleteRow}
-            onActionSubmit={handleSubmit}
             editRow={handleEditRow}
-            defaultRowValue={rowToEdit}
+            openFormModal={openModal}
           />
         </div>
       </div>
+
+      <>
+        <ModalWrapper title="New User">
+          <FormUser
+            onActionSubmit={handleSubmit}
+            defaultValue={rowToEdit}
+            closeModal={closeModal}
+          />
+        </ModalWrapper>
+      </>
     </Template>
   );
 };
