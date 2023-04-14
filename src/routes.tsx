@@ -1,13 +1,17 @@
+import useAuth from "./hooks/useAuth";
+
+// Normal Pages
+import FaqPage from "./pages/Faq/Page";
+import UserPage from "./pages/User/Page";
+import HomePage from "./pages/Home/Page";
+import ProfilePage from "./pages/Profile/Page";
+import Error404Page from "./pages/Error/404Page";
+import ComponentPage from "./pages/Component/Page";
+
+// Auth Pages
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import RecoverPasswordPage from "./pages/Auth/RecoverPasswordPage";
-import HomePage from "./pages/Home/HomePage";
-import ComponentPage from "./pages/Component/ComponentPage";
-import UserPage from "./pages/User/Page";
-import FaqPage from "./pages/Faq/FaqPage";
-import useAuth from "./hooks/useAuth";
-import Error404Page from "./pages/Error/Error404Page";
-import ProfilePage from "./pages/Profile/ProfilePage";
 
 const Private = ({ Item }: any) => {
   const { signed } = useAuth();

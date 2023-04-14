@@ -1,10 +1,12 @@
 import { useState } from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+
 import ALink from "../../components/ALink";
 import Title from "../../components/Title";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+
+import useAuth from "../../hooks/useAuth";
 
 export default () => {
   const { signIn } = useAuth();
