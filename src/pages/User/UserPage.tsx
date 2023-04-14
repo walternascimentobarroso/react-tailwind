@@ -129,7 +129,7 @@ export default () => {
       </div>
 
       <>
-        <ModalWrapper title="New User">
+        <ModalWrapper title="User">
           <FormUser
             onActionSubmit={handleSubmit}
             defaultValue={rowToEdit}
