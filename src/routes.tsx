@@ -3,7 +3,7 @@ import RegisterPage from "./pages/Auth/RegisterPage";
 import RecoverPasswordPage from "./pages/Auth/RecoverPasswordPage";
 import HomePage from "./pages/Home/HomePage";
 import ComponentPage from "./pages/Component/ComponentPage";
-import UserPage from "./pages/User/UserPage";
+import UserPage from "./pages/User/Page";
 import FaqPage from "./pages/Faq/FaqPage";
 import useAuth from "./hooks/useAuth";
 import Error404Page from "./pages/Error/Error404Page";

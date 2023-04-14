@@ -1,6 +1,6 @@
 import { useState } from "react";
-import FormUser from "./FormUser";
-import TableUser from "./TableUser";
+import Form from "./Form";
+import Table from "./Table";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import Template from "../../components/Template";
@@ -119,7 +119,7 @@ export default () => {
               New
             </Button>
           </div>
-          <TableUser
+          <Table
             data={data}
             deleteRow={handleDeleteRow}
             editRow={handleEditRow}
@@ -130,7 +130,7 @@ export default () => {
 
       <>
         <ModalWrapper title="User">
-          <FormUser
+          <Form
             onActionSubmit={handleSubmit}
             defaultValue={rowToEdit}
             closeModal={closeModal}
