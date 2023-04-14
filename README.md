@@ -73,18 +73,24 @@ git reset --hard HEAD~
 
 | **Description**  | **Type**  |
 | ---------------- | --------- |
+| Alert            | Component |
 | AsideMenu        | Component |
 | Breadcrumb       | Component |
 | Button           | Component |
+| CustomSelect     | Component |
 | DarkMode         | Component |
 | Dropdown         | Component |
 | Footer           | Component |
 | Fullscreen       | Component |
 | Header           | Component |
 | Input            | Component |
+| Modal            | Component |
 | ProfilePicture   | Component |
+| SearchButton     | Component |
+| StatisticCard    | Component |
 | Table            | Component |
 | Template         | Component |
+| Title            | Component |
 | Tooltip          | Component |
 | TopButton        | Component |
 | Component        | Page      |

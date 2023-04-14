@@ -4,6 +4,7 @@ import DarkMode from "../DarkMode";
 import Logo from "../../assets/logo.png";
 import { MdSearch } from "react-icons/md";
 import Fullscreen from "../Fullscreen";
+import SearchButton from "../SearchButton";
 
 const Header = () => {
   return (
@@ -46,21 +47,7 @@ const Header = () => {
               </span>
             </a>
             <form action="#" method="GET" className="hidden lg:block lg:pl-32">
-              <label htmlFor="topbar-search" className="sr-only">
-                Search
-              </label>
-              <div className="mt-1 relative lg:w-64">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <MdSearch className="w-5 h-5 text-gray-500" />
-                </div>
-                <input
-                  type="text"
-                  name="email"
-                  id="topbar-search"
-                  className="bg-gray-50 dark:bg-gray-700 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5"
-                  placeholder="Search"
-                />
-              </div>
+              <SearchButton placeholder="Search" />
             </form>
           </div>
           <div className="flex items-center">
