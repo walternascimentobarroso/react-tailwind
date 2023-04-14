@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import ProfilePicture from "../../components/ProfilePicture";
 import CustomSelect from "../../components/CustomSelect";
 
-export default ({ onActionSubmit, defaultValue, closeModal }: any) => {
+export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
   const [formState, setFormState] = useState({
     name: "",
     lastName: "",
