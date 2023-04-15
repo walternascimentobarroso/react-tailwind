@@ -8,6 +8,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 
 import { useModal } from "../../hooks/useModal";
 import SearchButton from "../../components/SearchButton";
+import Toast from "../../components/Toast";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
@@ -49,19 +50,20 @@ export default () => {
     setRowToEdit(row);
   };
 
-  const handleDeleteRow = (targetIndex: any) =>
+  const handleDeleteRow = (targetIndex: any) => {
     setData(data.filter((row: any) => row.id !== targetIndex));
+  };
 
   const handleSubmit = (newRow: any) => {
-    "name" in rowToEdit
-      ? setData(
+    !Object.keys(rowToEdit).length
+      ? setData([...data, newRow])
+      : setData(
           data.map((row) => {
             if (row.id !== newRow.id) return row;
 
             return newRow;
           })
-        )
-      : setData([...data, newRow]);
+        );
   };
 
   return (
@@ -80,6 +82,8 @@ export default () => {
       />
 
       <Title>Users</Title>
+
+      <Toast message="Toast de exemplo" duration={3000} />
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
