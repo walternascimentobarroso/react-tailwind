@@ -12,7 +12,47 @@ import Toast from "../../components/Toast";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
-
+  const [list, setList]: any = useState([]);
+  let toastProperties = null;
+  const showToast = (type: any) => {
+    switch (type) {
+      case "success":
+        toastProperties = {
+          id: list.length + 1,
+          title: "Success",
+          description: "This is a success toast component",
+          backgroundColor: "#5cb85c",
+        };
+        break;
+      case "danger":
+        toastProperties = {
+          id: list.length + 1,
+          title: "Danger",
+          description: "This is a danger toast component",
+          backgroundColor: "#d9534f",
+        };
+        break;
+      case "info":
+        toastProperties = {
+          id: list.length + 1,
+          title: "Info",
+          description: "This is a info toast component",
+          backgroundColor: "#5bc0de",
+        };
+        break;
+      case "warning":
+        toastProperties = {
+          id: list.length + 1,
+          title: "Warning",
+          description: "This is a warning toast component",
+          backgroundColor: "#f0ad4e",
+        };
+        break;
+      default:
+        toastProperties = [];
+    }
+    setList([...list, toastProperties]);
+  };
   const [data, setData] = useState([
     {
       id: 1,
@@ -52,6 +92,7 @@ export default () => {
 
   const handleDeleteRow = (targetIndex: any) => {
     setData(data.filter((row: any) => row.id !== targetIndex));
+    showToast("warning");
   };
 
   const handleSubmit = (newRow: any) => {
@@ -82,9 +123,7 @@ export default () => {
       />
 
       <Title>Users</Title>
-
-      <Toast message="Toast de exemplo" duration={3000} />
-
+      <Toast toastlist={list} position="top-left" setList={setList} />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
