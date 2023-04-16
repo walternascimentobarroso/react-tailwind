@@ -1,50 +1,80 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 
-interface ToastProps {
-  message: string;
-  duration: number;
+interface ToastItem {
+  id: number;
+  title: string;
+  description: string;
   type?: "danger" | "warning" | "success" | "info";
 }
 
-const Toast: React.FC<ToastProps> = ({ message, duration, type = "info" }) => {
-  const [showToast, setShowToast] = useState(false);
+interface ToastProps {
+  toasties: ToastItem[];
+  position: "top-right" | "top-left" | "bottom-right" | "bottom-left";
+  setList: any;
+}
+
+const Toast: React.FC<ToastProps> = ({ toasties, position, setList }) => {
+  const deleteToast = useCallback(
+    (id: number) =>
+      setList((prevList: any) => prevList.filter((e: any) => e.id !== id)),
+    [setList]
+  );
 
   useEffect(() => {
-    setShowToast(true);
-
-    const timer = setTimeout(() => {
-      setShowToast(false);
-    }, duration);
+    const interval = setInterval(() => {
+      if (toasties.length) {
+        deleteToast(toasties[0].id);
+      }
+    }, 3000);
 
     return () => {
-      clearTimeout(timer);
+      clearInterval(interval);
     };
-  }, []);
+  }, [toasties, deleteToast]);
 
-  let bgColor = "";
-  switch (type) {
-    case "danger":
-      bgColor = "bg-red-500";
-      break;
-    case "warning":
-      bgColor = "bg-yellow-500";
-      break;
-    case "success":
-      bgColor = "bg-green-500";
-      break;
-    case "info":
-    default:
-      bgColor = "bg-blue-500";
-      break;
-  }
+  const type = (type: any) => {
+    switch (type) {
+      case "danger":
+        return "bg-red-500";
+      case "warning":
+        return "bg-yellow-500";
+      case "success":
+        return "bg-green-500";
+      case "info":
+      default:
+        return "bg-blue-500";
+    }
+  };
 
   return (
     <div
-      className={`fixed top-0 right-0 mt-20 mr-4 p-4 rounded-md text-white ${bgColor} ${
-        showToast ? "opacity-100" : "opacity-0 pointer-events-none"
-      } transition-opacity duration-300 z-30`}
+      className={`fixed z-30 
+                ${position === "top-right" && "top-4 right-4"}
+                ${position === "top-left" && "top-4 left-4"}
+                ${position === "bottom-right" && "bottom-4 right-4"}
+                ${position === "bottom-left" && "bottom-4 left-4"}
+                `}
     >
-      {message}
+      {toasties.map((toast, i) => (
+        <div
+          key={i}
+          className={`mb-4 rounded-md shadow-md text-black opacity-90 transition duration-300 hover:shadow-lg 
+          ${type(toast.type)}`}
+        >
+          <button
+            className={`float-right bg-transparent border-none text-white opacity-80 cursor-pointer p-2`}
+            onClick={() => deleteToast(toast.id)}
+          >
+            X
+          </button>
+          <div className="flex items-center p-2">
+            <p className="font-semibold text-lg">{toast.title}</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm">{toast.description}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

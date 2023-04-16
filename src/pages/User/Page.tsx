@@ -12,7 +12,16 @@ import Toast from "../../components/Toast";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
-
+  const [list, setList]: any = useState([]);
+  const showToast = (type: string, title: string, description: string) => {
+    const toastProperties = {
+      id: list.length + 1,
+      title,
+      description,
+      type,
+    };
+    setList([...list, toastProperties]);
+  };
   const [data, setData] = useState([
     {
       id: 1,
@@ -52,6 +61,7 @@ export default () => {
 
   const handleDeleteRow = (targetIndex: any) => {
     setData(data.filter((row: any) => row.id !== targetIndex));
+    showToast("success", "Removed", "Removed with success");
   };
 
   const handleSubmit = (newRow: any) => {
@@ -82,9 +92,7 @@ export default () => {
       />
 
       <Title>Users</Title>
-
-      <Toast message="Toast de exemplo" duration={3000} />
-
+      <Toast toasties={list} position="top-right" setList={setList} />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
