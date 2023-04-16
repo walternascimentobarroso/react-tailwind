@@ -21,7 +21,7 @@ export default () => {
           id: list.length + 1,
           title: "Success",
           description: "This is a success toast component",
-          backgroundColor: "#5cb85c",
+          backgroundColor: "bg-green-500",
         };
         break;
       case "danger":
@@ -29,7 +29,7 @@ export default () => {
           id: list.length + 1,
           title: "Danger",
           description: "This is a danger toast component",
-          backgroundColor: "#d9534f",
+          backgroundColor: "bg-red-500",
         };
         break;
       case "info":
@@ -37,7 +37,7 @@ export default () => {
           id: list.length + 1,
           title: "Info",
           description: "This is a info toast component",
-          backgroundColor: "#5bc0de",
+          backgroundColor: "bg-blue-500",
         };
         break;
       case "warning":
@@ -45,7 +45,7 @@ export default () => {
           id: list.length + 1,
           title: "Warning",
           description: "This is a warning toast component",
-          backgroundColor: "#f0ad4e",
+          backgroundColor: "bg-yellow-500",
         };
         break;
       default:
@@ -123,7 +123,7 @@ export default () => {
       />
 
       <Title>Users</Title>
-      <Toast toastlist={list} position="top-left" setList={setList} />
+      <Toast toastlist={list} position="top-right" setList={setList} />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">

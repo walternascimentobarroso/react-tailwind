@@ -36,16 +36,17 @@ const Toast: React.FC<ToastProps> = ({ toastlist, position, setList }) => {
 
   return (
     <div
-      className={`fixed z-30 ${position === "top-right" ? "top-4 right-4" : ""}
-    ${position === "top-left" ? "top-4 left-4" : ""}
-    ${position === "bottom-right" ? "bottom-4 right-4" : ""}
-    ${position === "bottom-left" ? "bottom-4 left-4" : ""}`}
+      className={`fixed z-30 
+                ${position === "top-right" && "top-4 right-4"}
+                ${position === "top-left" && "top-4 left-4"}
+                ${position === "bottom-right" && "bottom-4 right-4"}
+                ${position === "bottom-left" && "bottom-4 left-4"}
+                `}
     >
       {toastlist.map((toast, i) => (
         <div
           key={i}
-          className={`mb-4 rounded-md shadow-md text-black opacity-90 transition duration-300 hover:shadow-lg`}
-          style={{ backgroundColor: toast.backgroundColor }}
+          className={`mb-4 rounded-md shadow-md text-black opacity-90 transition duration-300 hover:shadow-lg ${toast.backgroundColor}`}
         >
           <button
             className={`float-right bg-transparent border-none text-white opacity-80 cursor-pointer p-2`}
