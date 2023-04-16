@@ -4,35 +4,47 @@ interface ToastItem {
   id: number;
   title: string;
   description: string;
-  backgroundColor: string;
+  type?: "danger" | "warning" | "success" | "info";
 }
 
 interface ToastProps {
-  toastlist: ToastItem[];
+  toasties: ToastItem[];
   position: "top-right" | "top-left" | "bottom-right" | "bottom-left";
-  setList: (toastList: ToastItem[]) => void;
+  setList: any;
 }
 
-const Toast: React.FC<ToastProps> = ({ toastlist, position, setList }) => {
+const Toast: React.FC<ToastProps> = ({ toasties, position, setList }) => {
   const deleteToast = useCallback(
-    (id: number) => {
-      const toastListItem = toastlist.filter((e) => e.id !== id);
-      setList(toastListItem);
-    },
-    [toastlist, setList]
+    (id: number) =>
+      setList((prevList: any) => prevList.filter((e: any) => e.id !== id)),
+    [setList]
   );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (toastlist.length) {
-        deleteToast(toastlist[0].id);
+      if (toasties.length) {
+        deleteToast(toasties[0].id);
       }
     }, 3000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [toastlist, deleteToast]);
+  }, [toasties, deleteToast]);
+
+  const type = (type: any) => {
+    switch (type) {
+      case "danger":
+        return "bg-red-500";
+      case "warning":
+        return "bg-yellow-500";
+      case "success":
+        return "bg-green-500";
+      case "info":
+      default:
+        return "bg-blue-500";
+    }
+  };
 
   return (
     <div
@@ -43,10 +55,11 @@ const Toast: React.FC<ToastProps> = ({ toastlist, position, setList }) => {
                 ${position === "bottom-left" && "bottom-4 left-4"}
                 `}
     >
-      {toastlist.map((toast, i) => (
+      {toasties.map((toast, i) => (
         <div
           key={i}
-          className={`mb-4 rounded-md shadow-md text-black opacity-90 transition duration-300 hover:shadow-lg ${toast.backgroundColor}`}
+          className={`mb-4 rounded-md shadow-md text-black opacity-90 transition duration-300 hover:shadow-lg 
+          ${type(toast.type)}`}
         >
           <button
             className={`float-right bg-transparent border-none text-white opacity-80 cursor-pointer p-2`}

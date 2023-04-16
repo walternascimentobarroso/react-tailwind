@@ -13,44 +13,13 @@ import Toast from "../../components/Toast";
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
   const [list, setList]: any = useState([]);
-  let toastProperties = null;
-  const showToast = (type: any) => {
-    switch (type) {
-      case "success":
-        toastProperties = {
-          id: list.length + 1,
-          title: "Success",
-          description: "This is a success toast component",
-          backgroundColor: "bg-green-500",
-        };
-        break;
-      case "danger":
-        toastProperties = {
-          id: list.length + 1,
-          title: "Danger",
-          description: "This is a danger toast component",
-          backgroundColor: "bg-red-500",
-        };
-        break;
-      case "info":
-        toastProperties = {
-          id: list.length + 1,
-          title: "Info",
-          description: "This is a info toast component",
-          backgroundColor: "bg-blue-500",
-        };
-        break;
-      case "warning":
-        toastProperties = {
-          id: list.length + 1,
-          title: "Warning",
-          description: "This is a warning toast component",
-          backgroundColor: "bg-yellow-500",
-        };
-        break;
-      default:
-        toastProperties = [];
-    }
+  const showToast = (type: string, title: string, description: string) => {
+    const toastProperties = {
+      id: list.length + 1,
+      title,
+      description,
+      type,
+    };
     setList([...list, toastProperties]);
   };
   const [data, setData] = useState([
@@ -92,7 +61,7 @@ export default () => {
 
   const handleDeleteRow = (targetIndex: any) => {
     setData(data.filter((row: any) => row.id !== targetIndex));
-    showToast("warning");
+    showToast("success", "Removed", "Removed with success");
   };
 
   const handleSubmit = (newRow: any) => {
@@ -123,7 +92,7 @@ export default () => {
       />
 
       <Title>Users</Title>
-      <Toast toastlist={list} position="top-right" setList={setList} />
+      <Toast toasties={list} position="top-right" setList={setList} />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
