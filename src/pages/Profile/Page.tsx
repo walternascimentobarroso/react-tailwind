@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import ProfilePicture from "../../components/ProfilePicture";
+import Card from "../../components/Card";
 
 export default () => {
   const [name, setName] = useState("");
@@ -28,8 +29,8 @@ export default () => {
 
       <Title>Profile</Title>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <form className="px-8 pt-6 pb-8 bg-white dark:bg-gray-800">
+      <Card>
+        <form>
           <div className="flex justify-center">
             <ProfilePicture alt="Profile picture" />
           </div>
@@ -60,7 +61,7 @@ export default () => {
             Save
           </Button>
         </form>
-      </div>
+      </Card>
     </Template>
   );
 };

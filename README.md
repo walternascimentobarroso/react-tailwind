@@ -77,6 +77,7 @@ git reset --hard HEAD~
 | AsideMenu        | Component |
 | Breadcrumb       | Component |
 | Button           | Component |
+| Card             | Component |
 | CustomSelect     | Component |
 | DarkMode         | Component |
 | Dropdown         | Component |

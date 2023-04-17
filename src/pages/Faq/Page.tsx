@@ -1,5 +1,7 @@
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
+import Card from "../../components/Card";
+import Title from "../../components/Title";
 
 export default () => {
   return (
@@ -17,13 +19,10 @@ export default () => {
         ]}
       />
 
-      <div className="bg-white text-gray-700 dark:bg-gray-800 dark:border-gray-700 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
-        <div className="flex flex-col">
-          <h1 className="text-gray-900 dark:text-white text-xl font-bold mb-2">
-            Frequenty asked questions
-          </h1>
-        </div>
-        <div className="grid divide-y divide-neutral-200 mx-auto mt-8">
+      <Title>Frequenty asked questions</Title>
+
+      <Card>
+        <div className="grid divide-y divide-neutral-200">
           <div className="py-5">
             <details className="group">
               <summary className="dark:text-white flex justify-between items-center font-medium cursor-pointer list-none">
@@ -191,7 +190,7 @@ export default () => {
             </details>
           </div>
         </div>
-      </div>
+      </Card>
     </Template>
   );
 };

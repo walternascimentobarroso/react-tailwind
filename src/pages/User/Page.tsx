@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Form from "./Form";
 import Table from "./Table";
+import Card from "../../components/Card";
 import Title from "../../components/Title";
+import Toast from "../../components/Toast";
 import Button from "../../components/Button";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
+import SearchButton from "../../components/SearchButton";
 
 import { useModal } from "../../hooks/useModal";
-import SearchButton from "../../components/SearchButton";
-import Toast from "../../components/Toast";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
@@ -93,28 +94,27 @@ export default () => {
 
       <Title>Users</Title>
       <Toast toasties={list} position="top-right" setList={setList} />
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
-            <SearchButton placeholder="Search for items" />
 
-            <Button
-              onClick={() => {
-                setRowToEdit({});
-                openModal();
-              }}
-            >
-              New
-            </Button>
-          </div>
-          <Table
-            data={data}
-            deleteRow={handleDeleteRow}
-            editRow={handleEditRow}
-            openFormModal={openModal}
-          />
+      <Card className="p-0">
+        <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
+          <SearchButton placeholder="Search for items" />
+
+          <Button
+            onClick={() => {
+              setRowToEdit({});
+              openModal();
+            }}
+          >
+            New
+          </Button>
         </div>
-      </div>
+        <Table
+          data={data}
+          deleteRow={handleDeleteRow}
+          editRow={handleEditRow}
+          openFormModal={openModal}
+        />
+      </Card>
 
       <>
         <ModalWrapper title="User">

@@ -9,7 +9,7 @@ export default ({
   readOnly = false,
 }: any) => {
   return (
-    <div className="mb-4 md:mr-2 md:mb-0">
+    <div className="mb-4">
       <label
         className="block mb-2 text-sm font-bold text-gray-700 dark:text-white dark:bg-gray-800"
         htmlFor={name}
