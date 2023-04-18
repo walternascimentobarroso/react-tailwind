@@ -66,15 +66,23 @@ export default () => {
   };
 
   const handleSubmit = (newRow: any) => {
-    !Object.keys(rowToEdit).length
-      ? setData([...data, newRow])
-      : setData(
-          data.map((row) => {
-            if (row.id !== newRow.id) return row;
+    !Object.keys(rowToEdit).length ? newRegister(newRow) : editRegister(newRow);
+  };
 
-            return newRow;
-          })
-        );
+  const editRegister = (newRow: any) => {
+    setData(
+      data.map((row) => {
+        if (row.id !== newRow.id) return row;
+
+        return newRow;
+      })
+    );
+    showToast("success", "Edited", "Edit with success");
+  };
+
+  const newRegister = (newRow: any) => {
+    setData([...data, newRow]);
+    showToast("success", "Registered", "Register with success");
   };
 
   return (
