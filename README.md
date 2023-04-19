@@ -95,6 +95,7 @@ git reset --hard HEAD~
 | Header           | Component |
 | Input            | Component |
 | Modal            | Component |
+| PasswordInput    | Component |
 | ProfilePicture   | Component |
 | SearchButton     | Component |
 | StatisticCard    | Component |
