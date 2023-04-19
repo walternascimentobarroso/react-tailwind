@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import TemplateAuth from "../../components/TemplateAuth";
 
 import useAuth from "../../hooks/useAuth";
+import PasswordInput from "../../components/PasswordInput";
 
 export default () => {
   const { signIn } = useAuth();
@@ -46,7 +47,7 @@ export default () => {
           onChange={(e: any) => [setEmail(e.target.value), setError("")]}
         />
 
-        <Input
+        <PasswordInput
           label={"Password"}
           type={"password"}
           value={password}
@@ -55,11 +56,9 @@ export default () => {
         />
 
         <div>{error}</div>
-
         <Button customClass="w-full mb-6" onClick={handleLogin}>
           Login
         </Button>
-
         <div className="flex justify-between">
           <ALink route="/recover">Forgot Password?</ALink>
 
