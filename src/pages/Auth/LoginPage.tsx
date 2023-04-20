@@ -12,18 +12,23 @@ import PasswordInput from "../../components/PasswordInput";
 export default () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: any) =>
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+
   const handleLogin = () => {
-    if (!email || !password) {
+    if (!formState.email || !formState.password) {
       setError("Fill all fields");
       return;
     }
 
-    const res: any = signIn(email, password);
+    const res: any = signIn(formState.email, formState.password);
 
     if (res) {
       setError(res);
@@ -42,17 +47,18 @@ export default () => {
         <Input
           label={"Email"}
           type={"email"}
-          value={email}
           placeholder={"Email"}
-          onChange={(e: any) => [setEmail(e.target.value), setError("")]}
+          name={"email"}
+          value={formState?.email || ""}
+          onChange={handleChange}
         />
 
         <PasswordInput
           label={"Password"}
-          type={"password"}
-          value={password}
           placeholder={"Password"}
-          onChange={(e: any) => [setPassword(e.target.value), setError("")]}
+          name={"password"}
+          value={formState?.password || ""}
+          onChange={handleChange}
         />
 
         <div>{error}</div>

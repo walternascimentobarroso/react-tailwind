@@ -3,12 +3,19 @@ import ALink from "../../components/ALink";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import TemplateAuth from "../../components/TemplateAuth";
+import PasswordInput from "../../components/PasswordInput";
 
 export default () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formState, setFormState] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
+
+  const handleChange = (e: any) =>
+    setFormState({ ...formState, [e.target.name]: e.target.value });
 
   return (
     <TemplateAuth
@@ -18,40 +25,41 @@ export default () => {
       <form className="px-8 pt-6">
         <Input
           label={"Name"}
-          value={name}
+          value={formState?.name || ""}
           placeholder={"Name"}
-          onChange={(e: any) => setName(e.target.value)}
+          onChange={handleChange}
         />
 
         <Input
           label={"Last Name"}
-          value={lastName}
+          value={formState?.lastName || ""}
           placeholder={"Last Name"}
-          onChange={(e: any) => setLastName(e.target.value)}
+          onChange={handleChange}
         />
 
         <Input
           label={"Email"}
           type={"email"}
-          value={email}
           placeholder={"Email"}
-          onChange={(e: any) => setEmail(e.target.value)}
+          name={"email"}
+          value={formState?.email || ""}
+          onChange={handleChange}
         />
 
-        <Input
+        <PasswordInput
           label={"Password"}
-          type={"password"}
-          value={password}
           placeholder={"Password"}
-          onChange={(e: any) => setPassword(e.target.value)}
+          name={"password"}
+          value={formState?.password || ""}
+          onChange={handleChange}
         />
 
-        <Input
+        <PasswordInput
           label={"Confirm Password"}
-          type={"password"}
-          value={password}
-          placeholder={"Password"}
-          onChange={(e: any) => setPassword(e.target.value)}
+          placeholder={"Repeat Password"}
+          name={"repeatPassword"}
+          value={formState?.repeatPassword || ""}
+          onChange={handleChange}
         />
 
         <Button customClass="w-full mb-6">Register Account</Button>

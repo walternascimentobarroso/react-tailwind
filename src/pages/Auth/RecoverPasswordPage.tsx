@@ -5,7 +5,13 @@ import Button from "../../components/Button";
 import TemplateAuth from "../../components/TemplateAuth";
 
 export default () => {
-  const [email, setEmail] = useState("");
+  const [formState, setFormState] = useState({
+    email: "",
+  });
+
+  const handleChange = (e: any) =>
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+
   return (
     <TemplateAuth
       image="https://source.unsplash.com/Mv9hjnEUHR4/600x800"
@@ -16,9 +22,10 @@ export default () => {
         <Input
           label={"Email"}
           type={"email"}
-          value={email}
           placeholder={"Email"}
-          onChange={(e: any) => setEmail(e.target.value)}
+          name={"email"}
+          value={formState?.email || ""}
+          onChange={handleChange}
         />
 
         <Button customClass="w-full mb-6">Recover Password</Button>
