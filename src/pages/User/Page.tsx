@@ -10,10 +10,12 @@ import Breadcrumb from "../../components/Breadcrumb";
 import SearchButton from "../../components/SearchButton";
 
 import { useModal } from "../../hooks/useModal";
+import Spinner from "../../components/Spinner";
 
 export default () => {
   const { openModal, closeModal, ModalWrapper } = useModal();
   const [list, setList]: any = useState([]);
+  const [loading, setLoading]: any = useState(false);
   const showToast = (type: string, title: string, description: string) => {
     const toastProperties = {
       id: list.length + 1,
@@ -61,12 +63,22 @@ export default () => {
   };
 
   const handleDeleteRow = (targetIndex: any) => {
-    setData(data.filter((row: any) => row.id !== targetIndex));
-    showToast("success", "Removed", "Removed with success");
+    setLoading(true);
+    setTimeout(() => {
+      setData(data.filter((row: any) => row.id !== targetIndex));
+      showToast("success", "Removed", "Removed with success");
+      setLoading(false);
+    }, 1000);
   };
 
   const handleSubmit = (newRow: any) => {
-    !Object.keys(rowToEdit).length ? newRegister(newRow) : editRegister(newRow);
+    setLoading(true);
+    setTimeout(() => {
+      !Object.keys(rowToEdit).length
+        ? newRegister(newRow)
+        : editRegister(newRow);
+      setLoading(false);
+    }, 1000);
   };
 
   const editRegister = (newRow: any) => {
@@ -101,6 +113,7 @@ export default () => {
       />
 
       <Title>Users</Title>
+      {loading && <Spinner />}
       <Toast toasties={list} position="top-right" setList={setList} />
 
       <Card className="p-0">

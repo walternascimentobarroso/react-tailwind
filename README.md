@@ -98,6 +98,7 @@ git reset --hard HEAD~
 | PasswordInput    | Component |
 | ProfilePicture   | Component |
 | SearchButton     | Component |
+| Spinner          | Component |
 | StatisticCard    | Component |
 | Table            | Component |
 | Template         | Component |
