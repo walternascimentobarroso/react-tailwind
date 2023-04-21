@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Alert from "../../components/Alert";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -6,28 +6,16 @@ import ProfilePicture from "../../components/ProfilePicture";
 import CustomSelect from "../../components/CustomSelect";
 
 export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
-  const [formState, setFormState] = useState({
-    name: "",
-    lastName: "",
-    email: "",
-    password: "",
-    role: "",
-    status: "",
-  });
-
-  useEffect(
-    () =>
-      setFormState(
-        defaultValue || {
-          name: "",
-          lastName: "",
-          email: "",
-          password: "",
-          role: "",
-          status: "",
-        }
-      ),
-    [defaultValue]
+  const [errors, setErrors] = useState("");
+  const [formState, setFormState] = useState(
+    defaultValue || {
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+      role: "",
+      status: "",
+    }
   );
 
   const options = [
@@ -40,8 +28,6 @@ export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
     console.log("Opção selecionada:", value);
     // Faça algo com o valor selecionado, como atualizar o estado do componente pai
   };
-
-  const [errors, setErrors] = useState("");
 
   const validateForm = () => {
     setErrors("");
@@ -58,10 +44,10 @@ export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
     return true;
   };
 
-  const handleChange = (e: any) =>
-    setFormState({ ...formState, [e.target.name]: e.target.value });
+  const handleChange = ({ target }: any) =>
+    setFormState({ ...formState, [target.name]: target.value });
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = () => {
     if (!validateForm()) return;
     onActionSubmit(formState);
     closeModal();
