@@ -1,16 +1,25 @@
 import { useState } from "react";
-import Input from "../../components/Input";
+import Card from "../../components/Card";
 import Title from "../../components/Title";
+import Input from "../../components/Input";
 import Button from "../../components/Button";
+import ChangePassword from "./ChangePassword";
+import { useModal } from "../../hooks/useModal";
 import Template from "../../components/Template";
 import Breadcrumb from "../../components/Breadcrumb";
 import ProfilePicture from "../../components/ProfilePicture";
-import Card from "../../components/Card";
 
 export default () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const { openModal, closeModal, ModalWrapper } = useModal();
+
+  const [formState, setFormState] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+  });
+
+  const handleChange = (e: any) =>
+    setFormState({ ...formState, [e.target.name]: e.target.value });
 
   return (
     <Template>
@@ -37,31 +46,45 @@ export default () => {
 
           <Input
             label={"Name"}
-            value={name}
+            name={"name"}
+            value={formState?.name}
             placeholder={"Name"}
-            onChange={(e: any) => setName(e.target.value)}
+            onChange={handleChange}
           />
 
           <Input
             label={"Last Name"}
-            value={lastName}
+            name={"lastName"}
+            value={formState?.lastName}
             placeholder={"Last Name"}
-            onChange={(e: any) => setLastName(e.target.value)}
+            onChange={handleChange}
           />
 
           <Input
             label={"Email"}
+            name={"email"}
             type={"email"}
-            value={email}
+            value={formState?.email}
             placeholder={"Email"}
-            onChange={(e: any) => setEmail(e.target.value)}
+            onChange={handleChange}
           />
+
+          <Button
+            customClass="custom--btn-warning w-full mb-4"
+            onClick={openModal}
+          >
+            Update Password
+          </Button>
 
           <Button customClass="w-full" onClick={() => {}}>
             Save
           </Button>
         </form>
       </Card>
+
+      <ModalWrapper title="Update Password">
+        <ChangePassword closeModal={closeModal} />
+      </ModalWrapper>
     </Template>
   );
 };

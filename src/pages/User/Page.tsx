@@ -137,15 +137,13 @@ export default () => {
         />
       </Card>
 
-      <>
-        <ModalWrapper title="User">
-          <Form
-            onActionSubmit={handleSubmit}
-            defaultValue={rowToEdit}
-            closeModal={closeModal}
-          />
-        </ModalWrapper>
-      </>
+      <ModalWrapper title="User">
+        <Form
+          onActionSubmit={handleSubmit}
+          defaultValue={rowToEdit}
+          closeModal={closeModal}
+        />
+      </ModalWrapper>
     </Template>
   );
 };
