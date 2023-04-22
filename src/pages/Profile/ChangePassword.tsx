@@ -20,14 +20,16 @@ export default ({ closeModal }: any) => {
         name={"currentPassword"}
         value={formState?.currentPassword || ""}
         onChange={handleChange}
-      />{" "}
+      />
+
       <PasswordInput
         label={"New password"}
         placeholder={"New password"}
         name={"newPassword"}
         value={formState?.newPassword || ""}
         onChange={handleChange}
-      />{" "}
+      />
+
       <PasswordInput
         label={"Password confirmation"}
         placeholder={"Password confirmation"}
