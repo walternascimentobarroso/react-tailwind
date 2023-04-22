@@ -82,6 +82,7 @@ git reset --hard HEAD~
 
 | **Description**  | **Type**  |
 | ---------------- | --------- |
+| Accordion        | Component |
 | Alert            | Component |
 | AsideMenu        | Component |
 | Breadcrumb       | Component |

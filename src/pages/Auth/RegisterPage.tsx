@@ -25,6 +25,7 @@ export default () => {
       <form className="px-8 pt-6">
         <Input
           label={"Name"}
+          name={"name"}
           value={formState?.name || ""}
           placeholder={"Name"}
           onChange={handleChange}
@@ -32,6 +33,7 @@ export default () => {
 
         <Input
           label={"Last Name"}
+          name={"lastName"}
           value={formState?.lastName || ""}
           placeholder={"Last Name"}
           onChange={handleChange}
