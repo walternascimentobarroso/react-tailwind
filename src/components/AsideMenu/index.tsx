@@ -9,7 +9,11 @@ import {
   MdPieChart,
 } from "react-icons/md";
 
-const AsideMenu = () => {
+interface MenuAsideProps {
+  isMenuOpen: boolean;
+}
+
+const AsideMenu = ({ isMenuOpen }: MenuAsideProps) => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   const [activeLink] = useState(window.location.pathname);
@@ -49,7 +53,8 @@ const AsideMenu = () => {
   return (
     <aside
       id="sidebar"
-      className="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"
+      className={`fixed z-20 h-full top-0 left-0 pt-16 flex flex-shrink-0 flex-col w-64 transition-width duration-150 ease-in-out
+      ${!isMenuOpen && "w-0"}`}
       aria-label="Sidebar"
     >
       <div className="custom--bg relative flex-1 flex flex-col min-h-0 border-r pt-0">
