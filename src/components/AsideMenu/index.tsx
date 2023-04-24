@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import {
   MdGroup,
+  MdLockPerson,
   MdLogout,
   MdOutlineFilterVintage,
   MdOutlineQuestionMark,
@@ -35,6 +36,11 @@ export default ({ isMenuOpen }: MenuAsideProps) => {
       href: "/user",
       title: "Users",
       icon: <MdGroup className="w-6 h-6 custom--svg" />,
+    },
+    {
+      href: "/role",
+      title: "Roles",
+      icon: <MdLockPerson className="w-6 h-6 custom--svg" />,
     },
   ];
 

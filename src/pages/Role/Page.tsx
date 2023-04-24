@@ -28,27 +28,15 @@ export default () => {
   const [data, setData] = useState([
     {
       id: 1,
-      name: "Administrator",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "admin@gmail.com",
-      role: "Admin",
+      description: "Admin",
     },
     {
       id: 2,
-      name: "User",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "user@gmail.com",
-      role: "User",
+      description: "Manager",
     },
     {
       id: 3,
-      name: "Manager",
-      photo:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      email: "manager@gmail.com",
-      role: "Manager",
+      description: "User",
     },
   ]);
 
@@ -86,6 +74,7 @@ export default () => {
     setFilteredData(
       filteredData.map((row) => (row.id !== newRow.id ? row : newRow))
     );
+
     showToast("success", "Edited", "Edit with success");
   };
 
@@ -98,7 +87,7 @@ export default () => {
   const [filteredData, setFilteredData] = useState(data);
   const filterData = ({ target }: any) => {
     const filteredData = data.filter((item) =>
-      item.name.toLowerCase().includes(target.value.toLowerCase())
+      item.description.toLowerCase().includes(target.value.toLowerCase())
     );
     setFilteredData(filteredData);
   };
@@ -112,19 +101,22 @@ export default () => {
             href: "/home",
           },
           {
-            label: "User",
+            label: "Roles",
             href: "",
           },
         ]}
       />
 
-      <Title>Users</Title>
+      <Title>Roles</Title>
       {loading && <Spinner />}
       <Toast toasties={list} position="top-right" setList={setList} />
 
       <Card className="p-0">
         <div className="flex justify-between bg-white p-4 border-b dark:bg-gray-800 dark:border-gray-700 rounded-t-lg">
-          <SearchButton placeholder="Search for name" onChange={filterData} />
+          <SearchButton
+            placeholder="Search for description"
+            onChange={filterData}
+          />
 
           <Button
             onClick={() => {
@@ -143,7 +135,7 @@ export default () => {
         />
       </Card>
 
-      <ModalWrapper title="User">
+      <ModalWrapper title="Role">
         <Form
           onActionSubmit={handleSubmit}
           defaultValue={rowToEdit}

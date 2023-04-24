@@ -1,6 +1,6 @@
 import { MdSearch } from "react-icons/md";
 
-export default ({ placeholder = "" }: any) => {
+export default ({ placeholder = "", onChange = () => {} }: any) => {
   return (
     <>
       <label htmlFor="table-search" className="sr-only">
@@ -22,6 +22,7 @@ export default ({ placeholder = "" }: any) => {
           dark:focus:ring-blue-500 dark:focus:border-blue-500
           w-full pl-10 p-2.5"
           placeholder={placeholder}
+          onChange={onChange}
         />
       </div>
     </>

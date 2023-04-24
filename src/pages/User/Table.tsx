@@ -9,7 +9,7 @@ export default ({ data, deleteRow, editRow, openFormModal }: any) => {
     description: "",
   });
 
-  const tHeads = ["User", "Role", "Status", "Actions"];
+  const tHeads = ["User", "Role", "Actions"];
   return (
     <>
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -40,7 +40,7 @@ export default ({ data, deleteRow, editRow, openFormModal }: any) => {
                   />
                   <div>
                     <h2 className="text-sm font-medium text-gray-800 dark:text-white ">
-                      {record.name}
+                      {record.name} {record.lastName}
                     </h2>
                     <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
                       {record.email}
@@ -49,7 +49,6 @@ export default ({ data, deleteRow, editRow, openFormModal }: any) => {
                 </div>
               </td>
               <td className="px-6 py-4">{record.role} </td>
-              <td className="px-6 py-4">{record.status}</td>
               <td className="px-6 py-4">
                 <Button
                   customClass="custom--btn-warning mr-4"
