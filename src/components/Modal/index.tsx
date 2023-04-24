@@ -1,5 +1,5 @@
-import { MdClose } from "react-icons/md";
 import Title from "../Title";
+import { MdClose } from "react-icons/md";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,13 +9,13 @@ interface ModalProps {
   button?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({
+export default ({
   isOpen,
   onClose,
   title,
   children,
   button = false,
-}) => {
+}: ModalProps) => {
   return (
     <div
       className={`fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 ${
@@ -32,15 +32,15 @@ const Modal: React.FC<ModalProps> = ({
         className={`bg-white dark:bg-gray-800 rounded-lg w-full max-w-md p-6 z-10 transform transition-all
         duration-500 ${
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-        }`}
+        } max-h-screen overflow-y-auto`}
       >
         <div className="flex justify-between items-center mb-4">
           <Title>{title}</Title>
-          <button onClick={onClose}>
+          <button className="dark:text-white" onClick={onClose}>
             <MdClose className="w-6 h-6" />
           </button>
         </div>
-        <div>{children}</div>
+        {children}
         {button && (
           <div className="mt-4 flex justify-end">
             <button
@@ -48,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({
               onClick={onClose}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Fechar
+              Close
             </button>
           </div>
         )}
@@ -56,5 +56,3 @@ const Modal: React.FC<ModalProps> = ({
     </div>
   );
 };
-
-export default Modal;
