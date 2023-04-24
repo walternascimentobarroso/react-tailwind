@@ -13,10 +13,14 @@ interface MenuAsideProps {
   isMenuOpen: boolean;
 }
 
-const AsideMenu = ({ isMenuOpen }: MenuAsideProps) => {
+export default ({ isMenuOpen }: MenuAsideProps) => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
-  const [activeLink] = useState(window.location.pathname);
+  const [activeLink] = useState(() => {
+    const textOriginal = window.location.pathname;
+    const textRemoved = import.meta.env.BASE_URL;
+    return textOriginal.replace(textRemoved, "");
+  });
 
   /**
    * Dynamic links loaded according to the project/user
@@ -107,5 +111,3 @@ const AsideMenu = ({ isMenuOpen }: MenuAsideProps) => {
     </aside>
   );
 };
-
-export default AsideMenu;
