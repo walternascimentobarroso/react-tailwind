@@ -4,6 +4,7 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import ProfilePicture from "../../components/ProfilePicture";
 import CustomSelect from "../../components/CustomSelect";
+import PasswordInput from "../../components/PasswordInput";
 
 export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
   const [errors, setErrors] = useState("");
@@ -19,9 +20,9 @@ export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
   );
 
   const options = [
-    { value: "option1", label: "Opção 1" },
-    { value: "option2", label: "Opção 2" },
-    { value: "option3", label: "Opção 3" },
+    { value: "1", label: "Admin" },
+    { value: "2", label: "Manager" },
+    { value: "3", label: "User" },
   ];
 
   const handleSelect = (value: string) => {
@@ -93,36 +94,19 @@ export default ({ onActionSubmit, defaultValue = {}, closeModal }: any) => {
           onChange={handleChange}
         />
 
-        <Input
+        <PasswordInput
           label={"Password"}
-          type={"password"}
           placeholder={"Password"}
           name={"password"}
           value={formState?.password || ""}
           onChange={handleChange}
         />
 
-        <Input
-          label={"Role"}
-          placeholder={"Role"}
-          name={"role"}
-          value={formState?.role || ""}
-          onChange={handleChange}
-        />
-
         <CustomSelect
-          label={"Category"}
-          name={"category"}
+          label={"Role"}
+          name={"role"}
           options={options}
           onSelect={handleSelect}
-        />
-
-        <Input
-          label={"Status"}
-          placeholder={"status"}
-          name={"status"}
-          value={formState?.status || ""}
-          onChange={handleChange}
         />
 
         <Button customClass="w-full" onClick={handleSubmit}>
