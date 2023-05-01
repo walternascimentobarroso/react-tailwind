@@ -133,6 +133,17 @@ git reset --hard HEAD~
 </details>
 
 <details open>
+<summary><h2> :memo: Publish </h2></summary>
+
+```
+yarn build
+npm login
+npm publish
+```
+
+</details>
+
+<details open>
 <summary><h2> :memo: License </h2></summary>
 
 The [MIT License](LICENSE) (MIT)
