@@ -63,8 +63,8 @@ export default ({ isMenuOpen }: MenuAsideProps) => {
   return (
     <aside
       id="sidebar"
-      className={`fixed z-20 h-full top-0 left-0 pt-16 flex flex-shrink-0 flex-col w-64 transition-width duration-150 ease-in-out
-      ${!isMenuOpen && "w-0"}`}
+      className={`fixed z-20 h-full top-0 left-0 pt-16 flex flex-shrink-0 flex-col transition-width duration-150 ease-in-out
+      ${isMenuOpen ? "w-64" : "w-0"}`}
       aria-label="Sidebar"
     >
       <div className="custom--bg relative flex-1 flex flex-col min-h-0 border-r pt-0">
